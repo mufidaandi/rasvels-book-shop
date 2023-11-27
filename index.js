@@ -15,10 +15,19 @@ db.once('open', () => {
   console.log('Connected to MongoDB');
 });
 
+app.use(express.static('public'));
 app.use(bodyParser.json());
 
 const bookRouter= require("./routes/book");
-app.use('/',bookRouter)
+app.use('/',bookRouter);
+
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
+});
+
+app.get('/home', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
+});
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

@@ -1,0 +1,151 @@
+.featured-container {
+  width: 80%;
+  display: flex;
+  margin: auto;
+}
+
+.feat {
+  height: 450px;
+  width: 100%;
+  padding: 20px;
+  color: #8a4421;
+}
+
+#product-list,
+#best-seller-list {
+  display: flex;
+}
+
+#product-list a {
+  width: 25%;
+  margin: 10px;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 10px;
+  height: 100%;
+}
+
+.product-card img {
+  width: 80%;
+  height: auto;
+  object-fit: cover;
+  margin: auto;
+  border-radius: 4px 4px 0 0;
+  padding: 1rem;
+}
+
+.product-name {
+  height: 50px;
+}
+
+.product-name b {
+  color: #8a4421;
+}
+
+.product-name span {
+  margin-left: 5px;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-rating-value {
+  margin-left: 10px;
+}
+
+.product-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+#product-list a:visited,
+#product-list a:link {
+  color: black;
+}
+
+.ecicon {
+  color: #ff6262 !important;
+}
+
+.articles {
+  height: 90vh;
+  border-top: 8px solid #8a4421;
+  display: flex;
+}
+
+.articles h2 {
+  color: #8a4421;
+}
+
+.article-text {
+  padding: 50px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: black !important;
+}
+
+.article-text div {
+  width: 70%;
+}
+
+.article-img {
+  background-color: #8a4421;
+  padding: 50px;
+  width: 50%;
+}
+
+.article-img img {
+  width: 100%;
+  height: 100%;
+  border: 8px solid #f6f3f0;
+}
+
+.read-btn {
+  width: 150px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 15px;
+  margin-top: 50px;
+  color: white;
+  background-color: #8a4421;
+}
+
+.featured-categories {
+  width: 100%;
+  color: #8a4421;
+}
+
+.feat-categ {
+  width: 80%;
+  margin: 40px auto;
+  color: #8a4421;
+}
+
+.feat-container {
+  display: flex;
+}
+
+.category {
+  text-align: center;
+  color: black !important;
+  cursor: pointer;
+}
+
+.category h3 {
+  margin: 0;
+}

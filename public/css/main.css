@@ -1,0 +1,197 @@
+/* MAIN */
+
+a:visited,
+a:link {
+  color: #8a4421;
+}
+
+.content-wrapper {
+  width: 100%;
+  background: white;
+  transition: 0.4s;
+}
+
+.categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cat-item img {
+  height: 200px;
+  border-radius: 100px;
+}
+
+.cat-item span {
+  margin-top: 15px;
+  font-size: 16px;
+  color: #1c2120;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  /* max-width: 80%; */
+  position: relative;
+  /* margin: 20px auto 0px;
+  border: 2px solid #edc3b5;
+  border-radius: 10px;
+  padding: 5px; */
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+.categories-container {
+  width: 100%;
+  height: 12%;
+  background-color: #ffffff;
+  padding: 5px 0;
+  font-family: 'Montserrat', sans-serif;
+}
+ 
+.categories-container h1 {
+  text-align: center;
+  color: #8a4421;
+  margin-bottom: 10px;
+}
+
+.divider {
+  width: 65%;
+  border: 1px solid #8a4421;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.displays {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+.display {
+  width: 10%;
+  cursor: pointer;
+  /* background-color: white; */
+}
+
+.display-text {
+  color: #8a4421;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.display img {
+  width: 100%;
+  transition: 0.4s;
+}
+
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  header {
+    justify-content: center;
+    height: 25vh;
+    min-height: 150px;
+    padding: 10px;
+  }
+  nav {
+    flex-basis: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer-wrapper {
+    font-size: 14px;
+  }
+  .search-wrapper {
+    height: 30px;
+  }
+  .search-wrapper form input::placeholder {
+    font-size: 12px;
+  }
+  .logo {
+    padding: 0;
+  }
+  .logo img {
+    width: 200px;
+  }
+  .nav-items {
+    font-size: 10px;
+  }
+  .cart-wrapper {
+    padding: 0;
+  }
+  .cart-wrapper .cart img {
+    width: 25px;
+  }
+}

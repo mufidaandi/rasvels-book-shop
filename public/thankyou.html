@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Checkout</title>
+    <link rel="icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/footer.css" /> 
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/thankyou.css">
+    <script src="js/vendor/jquery-3.5.1.min.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/users.js"></script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body id="body">
+    <!-- header contains logo, navigation, popups on hover -->
+    <header>
+      <div class="logo">
+        <a href="/home"><img src="/images/logo.png" /></a>
+      </div>
+      <nav class="nav-container">
+        <a href="./books-list.html" id="books" class="nav-items books">Books</a>
+        <a class="nav-items" href="./about.html">About Us</a>
+        <a class="nav-items" href="./contact.html">Contact Us</a>
+      </nav>
+      <div id="search-wrapper" class="search-wrapper">
+        <form class="search-bar">
+          <input type="text" 
+            onfocus="this.placeholder = 'Looking for something?'" 
+            onblur="this.placeholder = ''" 
+            id="search-input" 
+            class="search-input" 
+            placeholder="Looking for something?" />
+          <span id="search" class="search-icon"><i class="fa-solid fa-magnifying-glass fa-md" style="color: #442B1D;"></i></span for="search">
+        </form>
+      </div>
+      <div class="account-wrapper">
+        <div id="myaccount-wrapper" class="myaccount-wrapper">
+          <button id="myaccount" class="myaccount">
+            <a href="#">
+              <i class="fa-solid fa-user fa-xl" style="color: #442B1D;"></i>
+            </a>
+          </button>
+        </div>
+        <div id="myaccount-modal" class="myaccount-modal">
+          <div class="account-signin">
+            <h5>Sign In</h5>
+            <div class="form-container">
+              <label for="uname">Username/Email:</label>
+              <input id="uname" type="text" name="uname"/>
+              <label for="pword">Password:</label>
+              <input id="pword" type="password" name="pword"/>
+              
+              <a href="./forgotPassword.html">
+                <label for="forgot-pword" class="forgot-pword">
+                  Forgot Password?
+                </label>
+              </a>
+              <div class="btn-container">
+                <button id="login-btn" type="submit" onclick="login()">Login</button>
+              </div>
+              
+              <a href="./registration.html">
+                <label for="register" class="register">
+                  Create Account
+                </label>
+              </a>
+            </div>
+          </div>
+          <div class="account-profile">
+            <h5>Welcome!</h5>
+            <div class="form-container">
+              <a href="./user-profile.html">
+                <label for="profile" class="profile">
+                  User Profile
+                </label>
+              </a>
+              <div class="btn-container">
+                <button id="logout-btn" type="submit" onclick="logout()">Log out</button>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="cart-wrapper" class="cart-wrapper">
+        <button class="cart">
+          <a href="./shoppingcart.html">
+            <i id="cart-icon" class="fa-solid fa-cart-shopping fa-xl" style="color: #442B1D;"></i>
+          </a>
+        </button>
+      </div>
+    </header>
+    <!-- page content starts here -->
+    <main class="content-wrapper">
+        <div class="thankyou-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="section-title">
+                            <h2 class="ec-bg-title">Thank You!</h2>
+                            <p class="sub-title mb-3">Your order number is: 177791</p>
+                            <p class="sub-title mb-3">It will be delivered in 2-12 business days.</p>
+                            <p class="sub-title mb-3">Email us at <a style="color: cornflowerblue !important;" href="mailto:customerservice@rasvels.com">customerservice@rasvels.com</a> with any questions</p>
+                            <p class="sub-title mb-3">Or call us on <a style="color: cornflowerblue !important;" href="tel:+1519-542-7751">+1519-542-7751</a></p>
+                            <span class="check-order-btn">
+                                <a class="btn btn-primary" href="index.html">Continue Shopping</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- footer contains page info and social media links -->
+    <footer class="footer-wrapper">
+      <span>&copy; 2023, RASVEL's | Lambton College in Toronto - Winter 2023.</span>
+      <div class="social-media">
+        <a href="https://www.facebook.com/rasvels.pet.store" target=”_blank”><img src="assets/icons8-facebook-30.png" /></a>
+        <a href="https://www.instagram.com/rasvel_petstore/" target=”_blank”><img src="assets/icons8-instagram-30.png" /></a>
+      </div>
+    </footer>
+  </body>
+</html>
