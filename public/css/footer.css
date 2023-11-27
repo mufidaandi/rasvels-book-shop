@@ -1,0 +1,15 @@
+/* FOOTER */
+.footer-wrapper {
+    width: 100%;
+    min-height: 15vh;
+    background-color: #1c2120;
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .footer-wrapper span, .footer-wrapper div {
+    padding: 0 55px;
+  }

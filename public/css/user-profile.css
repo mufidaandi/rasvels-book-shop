@@ -1,0 +1,171 @@
+
+body {
+  background-color: #f6f3f0;
+}
+
+.content-wrapper {
+  background-color: #f6f3f0;
+  width: 100%;
+  padding: 20px;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+.card {
+  background-color: white;
+  padding: 1.5rem;
+}
+
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #8a4421;
+}
+
+.card span, .sub-text {
+  font-size: 0.8em;
+  color: #9b9b9b;
+}
+.sub-text {
+    margin: 0.5em auto;
+}
+
+.card hr {
+  margin: 1.2rem 0;
+}
+
+.data-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  row-gap: 1.2rem;
+  width: 100%;
+}
+.editable-data-card {
+    display: flex;  
+    flex-direction: column;
+    height: 100%;
+    row-gap: 1.2rem;
+    width: 100%;
+  }
+.row {
+  align-items: flex-start;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+.col-title {
+  width: 30%;
+  font-weight: 600;
+}
+
+.col-data {
+  flex-grow: 1;
+  color: #9b9b9b;
+}
+
+.col-right {
+  margin-left: auto;
+}
+
+.divider {
+  width: 100%;
+  border: 1px solid #eee;
+}
+
+.divider-dark {
+  border: 1px solid #cacaca;
+  margin: 1em 0 1.3em 0;
+}
+
+.data-edit, .password-edit {
+  outline: none;
+  font-size: 0.8rem;
+  text-decoration-line: underline;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.address {
+  grid-column: 1/3;
+}
+
+.form-grid {
+  column-gap: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 0.5rem;
+}
+
+.edit-info {
+  display: block;
+  margin-inline-end: 0;
+  margin-inline-start: 0;
+}
+
+.edit-info label, .main-text {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  font-family: var(--font-source-sans);
+  font-size: 0.8rem;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  line-height: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.edit-info input, select {
+  width: 100%;
+  margin: 5px 0 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #8a4421;
+  outline: none;
+}
+
+.edit-info input::placeholder {
+  font-size: 0.8rem;
+}
+
+.edit-details-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: flex-end;
+    width: 100%;
+    grid-column: 1/4;
+}
+
+.save-btn {
+    min-width: 95px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background-color: #8a4421;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.cancel-btn {
+    min-width: 95px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #8a4421;
+    color: #8a4421;
+    background-color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
