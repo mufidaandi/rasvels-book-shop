@@ -63,6 +63,8 @@ h3 {
 
 .column img {
   height: 100%;
+  width: 100%;
+  object-fit: cover;
   border: 5px solid white;
 }
 

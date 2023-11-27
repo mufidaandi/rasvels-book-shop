@@ -162,14 +162,7 @@ $(document).ready(function () {
   showSlides();
   setInterval(function () {
     plusSlides(1);
-  }, 5000);
-
-  // $("#topseller-image").on("mouseover", enlargeAnimation1);
-  // $("#topseller-image").on("mouseleave", reduceAnimation1);
-  // $("#newrelease-image").on("mouseover", enlargeAnimation2);
-  // $("#newrelease-image").on("mouseleave", reduceAnimation2);
-  // $("#deals-image").on("mouseover", enlargeAnimation3);
-  // $("#deals-image").on("mouseleave", reduceAnimation3);
+  }, 10000);
 
   addImageHoverHandlers("#topseller-image");
   addImageHoverHandlers("#newrelease-image");

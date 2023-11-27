@@ -1,10 +1,10 @@
-.featured-container {
+.book-container {
   width: 80%;
   display: flex;
   margin: auto;
 }
 
-.feat {
+.book {
   height: 450px;
   width: 100%;
   padding: 20px;
