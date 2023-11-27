@@ -19,7 +19,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"bookId\": 2,\r\n    \"title\": \"Harry Potter\",\r\n    \"author\": \"JK Rowling\",\r\n    \"genre\": \"Fantasy\",\r\n    \"price\": 30\r\n}",
+					"raw": "{\r\n    \"bookId\": 1,\r\n    \"title\": \"Harry Potter\",\r\n    \"description\": \"Book about wizards\",\r\n    \"author\": \"JK Rowling\",\r\n    \"genre\": \"Fantasy\",\r\n    \"price\": 30,\r\n    \"rating\": 5\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -47,10 +47,16 @@
 			"name": "Update Book",
 			"request": {
 				"method": "PUT",
-				"header": [],
+				"header": [
+					{
+						"key": "user-type",
+						"value": "admin",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"bookId\": 1,\r\n    \"title\": \"Sad Girls\",\r\n    \"author\": \"Lang Leav\",\r\n    \"genre\": \"Romance\",\r\n    \"price\": 15\r\n}",
+					"raw": "{\r\n    \"bookId\": 1,\r\n    \"title\": \"Harry Potter\",\r\n    \"description\": \"Book about wizards\",\r\n    \"author\": \"JK Rowling\",\r\n    \"genre\": \"Fantasy\",\r\n    \"price\": 30,\r\n    \"rating\": 4\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -103,7 +109,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:9000/getBook/",
+					"raw": "http://127.0.0.1:9000/getBook/1",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -114,14 +120,14 @@
 					"port": "9000",
 					"path": [
 						"getBook",
-						""
+						"1"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Get Book by ID Copy",
+			"name": "Delete Book",
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -138,6 +144,29 @@
 					"path": [
 						"deleteBook",
 						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Book",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:9000/searchBook/JK Rowling",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"searchBook",
+						"JK Rowling"
 					]
 				}
 			},

@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const BookData = require('../models/bookdata.js');
 const isAdmin = require('../middleware/isAdmin'); 
 
-
 //Getting list of books
 const getBooks = async (req, res) => {
     try {
@@ -51,17 +50,26 @@ const searchBooks = async (req, res) => {
 
 //Adding book
 const addBook = async (req, res) => {
-    const { bookId, title, author, genre, price } = req.body;
-
-    const newBookData = new BookData({
-        bookId,
-        title,
-        author,
-        genre,
-        price
-    });
+    const { bookId, title, description, author, genre, price, rating } = req.body;
 
     try {
+         // Check if a book with the same title and author already exists
+         const existingBook = await BookData.findOne({ title, author });
+
+         if (existingBook) {
+             return res.status(400).json({ message: 'Book with the same title and author already exists' });
+         }
+
+         const newBookData = new BookData({
+            bookId,
+            title,
+            description,
+            author,
+            genre,
+            price,
+            rating
+        });
+
         await newBookData.save();
         res.status(201).json(newBookData);
     } catch (error) {
@@ -71,13 +79,13 @@ const addBook = async (req, res) => {
 
 //Updating book
 const updateBook = async (req, res) => {
-    const bookId = req.params.title;
-    const { title, author, genre, price } = req.body;
+    const bookId = req.params.bookId;
+    const { title, description, author, genre, price, rating} = req.body;
 
     try {
         const updatedBook = await BookData.findOneAndUpdate(
             { bookId },
-            { title, author, genre, price },
+            { title, description, author, genre, price, rating },
             { new: true }
         );
 
@@ -101,7 +109,7 @@ const deleteBook = async (req, res) => {
         if (deletedBook) {
             res.status(200).json({ message: 'Book removed successfully' });
         } else {
-            res.status(404).json({ message: 'City not found' });
+            res.status(404).json({ message: 'Book not found' });
         }
     } catch (error) {
         res.status(500).json({ message: error.message });
