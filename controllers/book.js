@@ -2,7 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 const BookData = require('../models/bookdata.js');
-const isAdmin = require('../middleware/isAdmin'); 
 
 //Getting list of books
 const getBooks = async (req, res) => {
@@ -18,8 +17,8 @@ const getBooks = async (req, res) => {
 //Getting book by ID
 const getBookById = async (req, res) => {
     try {
-        const boookId = req.query.bookId;
-        const bookData = await BookData.findOne({ boookId });
+        const BookID = req.query.BookID;
+        const bookData = await BookData.findOne({ BookID });
         if (bookData) {
             res.status(200).json(bookData);
         } else {
@@ -30,15 +29,15 @@ const getBookById = async (req, res) => {
     }
 };
 
-//Searching book by title, author or genre
+//Searching book by Title, Author or Genre
 const searchBooks = async (req, res) => {
     try {
         const query = req.params.query;
         const books = await BookData.find({
             $or: [
-                { title: { $regex: query, $options: "i" } }, // Case-insensitive title search
-                { author: { $regex: query, $options: "i" } }, // Case-insensitive author search
-                { genre: { $regex: query, $options: "i" } }, // Case-insensitive genre search
+                { Title: { $regex: query, $options: "i" } }, // Case-insensitive Title search
+                { Author: { $regex: query, $options: "i" } }, // Case-insensitive Author search
+                { Genre: { $regex: query, $options: "i" } }, // Case-insensitive Genre search
             ],
         });
 
@@ -50,24 +49,26 @@ const searchBooks = async (req, res) => {
 
 //Adding book
 const addBook = async (req, res) => {
-    const { bookId, title, description, author, genre, price, rating } = req.body;
+    const { BookID, Title, Description, ReleaseDate, Author, Genre, Image, Price, Rating } = req.body;
 
     try {
-         // Check if a book with the same title and author already exists
-         const existingBook = await BookData.findOne({ title, author });
+         // Check if a book with the same Title and Author already exists
+         const existingBook = await BookData.findOne({ Title, Author });
 
          if (existingBook) {
-             return res.status(400).json({ message: 'Book with the same title and author already exists' });
+             return res.status(400).json({ message: 'Book with the same Title and Author already exists' });
          }
 
          const newBookData = new BookData({
-            bookId,
-            title,
-            description,
-            author,
-            genre,
-            price,
-            rating
+            BookID,
+            Title,
+            Description,
+            ReleaseDate,
+            Author,
+            Genre,
+            Image,
+            Price,
+            Rating
         });
 
         await newBookData.save();
@@ -79,13 +80,13 @@ const addBook = async (req, res) => {
 
 //Updating book
 const updateBook = async (req, res) => {
-    const bookId = req.params.bookId;
-    const { title, description, author, genre, price, rating} = req.body;
+    const BookID = req.params.BookID;
+    const { Title, Description, ReleaseDate, Author, Genre, Image, Price, Rating} = req.body;
 
     try {
         const updatedBook = await BookData.findOneAndUpdate(
-            { bookId },
-            { title, description, author, genre, price, rating },
+            { BookID },
+            { Title, Description, ReleaseDate, Author, Genre, Image, Price, Rating },
             { new: true }
         );
 
@@ -101,10 +102,10 @@ const updateBook = async (req, res) => {
 
 //Deleting book
 const deleteBook = async (req, res) => {
-    const bookId = req.params.bookId;
+    const BookID = req.params.BookID;
 
     try {
-        const deletedBook = await BookData.findOneAndDelete({ bookId });
+        const deletedBook = await BookData.findOneAndDelete({ BookID });
 
         if (deletedBook) {
             res.status(200).json({ message: 'Book removed successfully' });

@@ -12,14 +12,14 @@
 				"method": "POST",
 				"header": [
 					{
-						"key": "user-type",
+						"key": "role",
 						"value": "admin",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"bookId\": 1,\r\n    \"title\": \"Harry Potter\",\r\n    \"description\": \"Book about wizards\",\r\n    \"author\": \"JK Rowling\",\r\n    \"genre\": \"Fantasy\",\r\n    \"price\": 30,\r\n    \"rating\": 5\r\n}",
+					"raw": "{\r\n    \"BookID\": 1,\r\n    \"Title\": \"Harry Potter\",\r\n    \"Description\": \"Book about wizards\",\r\n    \"ReleaseDate\": \"2020-02-27T01:08:51.000Z\",\r\n    \"Author\": \"JK Rowling\",\r\n    \"Genre\": \"Fantasy\",\r\n    \"Image\": \"images/books/10.webp\",\r\n    \"Price\": 30,\r\n    \"Rating\": 5\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -44,19 +44,96 @@
 			"response": []
 		},
 		{
-			"name": "Update Book",
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "user-type",
+						"value": "admin",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"UserID\": 1,\r\n    \"UserName\": \"admin\",\r\n    \"FirstName\": \"admin\",\r\n    \"LastName\": \"admin\",\r\n    \"Email\": \"admin@mail.com\",\r\n    \"Password\": \"passsword\",\r\n    \"Address\": \"N/A\",\r\n    \"Role\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9000/createUser",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"createUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User Copy",
 			"request": {
 				"method": "PUT",
 				"header": [
 					{
 						"key": "user-type",
 						"value": "admin",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": 1,\r\n    \"username\": \"admin\",\r\n    \"firstName\": \"admin\",\r\n    \"lastName\": \"user\",\r\n    \"email\": \"admin@mail.com\",\r\n    \"password\": \"passsword\",\r\n    \"address\": \"N/A\",\r\n    \"role\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9000/updateUser/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"updateUser",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Book",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "role",
+						"value": "admin",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"bookId\": 1,\r\n    \"title\": \"Harry Potter\",\r\n    \"description\": \"Book about wizards\",\r\n    \"author\": \"JK Rowling\",\r\n    \"genre\": \"Fantasy\",\r\n    \"price\": 30,\r\n    \"rating\": 4\r\n}",
+					"raw": "{\r\n    \"BookID\": 1,\r\n    \"Title\": \"Harry Potter\",\r\n    \"Description\": \"Book about wizards\",\r\n    \"ReleaseDate\": \"2020-02-27T01:08:51.000Z\",\r\n    \"Author\": \"JK Rowling\",\r\n    \"Genre\": \"Fantasy\",\r\n    \"Image\": \"images/books/10.webp\",\r\n    \"Price\": 30,\r\n    \"Rating\": 4\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -130,7 +207,13 @@
 			"name": "Delete Book",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "role",
+						"value": "admin",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://127.0.0.1:9000/deleteBook/1",
 					"protocol": "http",
