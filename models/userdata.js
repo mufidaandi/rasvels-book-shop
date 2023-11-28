@@ -1,50 +1,49 @@
 const mongoose = require('mongoose');
 
-const bookSchema = mongoose.Schema({
-  BookID: {
+const userSchema = mongoose.Schema({
+  UserID: {
     type: Number,
     required: true,
     unique: true,
     index: true,
   },
-  Title: {
+  UserName: {
     type: String,
     required: true,
     maxlength: 100,
   },
-  Description: {
-    type: String,
-    required: true,
-    maxlength: 250,
-  },
-  ReleaseDate: {
-    type: Date,
-  },
-  Author: {
+  FirstName: {
     type: String,
     required: true,
     maxlength: 100,
   },
-  Genre: {
+  LastName: {
     type: String,
     required: true,
     maxlength: 100,
   },
-  Image: {
+  Email: {
     type: String,
     required: true,
     maxlength: 100,
   },
-  Price: {
-    type: Number,
+  Password: {
+    type: String,
     required: true,
+    maxlength: 100,
   },
-  Rating: {
-    type: Number,
+  Address: {
+    type: String,
     required: true,
+    maxlength: 100,
+  },
+  Role: {
+    type: String,
+    required: true,
+    maxlength: 10,
   }
 });
 
-const BookData = mongoose.model('BookData', bookSchema);
+const UserData = mongoose.model('UserData', userSchema);
 
-module.exports = BookData;
+module.exports = UserData;

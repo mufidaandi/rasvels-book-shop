@@ -15,11 +15,12 @@ db.once('open', () => {
   console.log('Connected to MongoDB');
 });
 
+
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
-const bookRouter= require("./routes/book");
-app.use('/',bookRouter);
+const router= require("./routes/route");
+app.use('/',router);
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
