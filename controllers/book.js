@@ -17,7 +17,7 @@ const getBooks = async (req, res) => {
 //Getting book by ID
 const getBookById = async (req, res) => {
     try {
-        const BookID = req.query.BookID;
+        const BookID = req.params.BookID;
         const bookData = await BookData.findOne({ BookID });
         if (bookData) {
             res.status(200).json(bookData);

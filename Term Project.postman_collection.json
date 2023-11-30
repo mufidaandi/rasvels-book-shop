@@ -7,253 +7,417 @@
 	},
 	"item": [
 		{
-			"name": "Add Books",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "role",
-						"value": "admin",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"BookID\": 1,\r\n    \"Title\": \"Harry Potter\",\r\n    \"Description\": \"Book about wizards\",\r\n    \"ReleaseDate\": \"2020-02-27T01:08:51.000Z\",\r\n    \"Author\": \"JK Rowling\",\r\n    \"Genre\": \"Fantasy\",\r\n    \"Image\": \"images/books/10.webp\",\r\n    \"Price\": 30,\r\n    \"Rating\": 5\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Books",
+			"item": [
+				{
+					"name": "Add Books",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "role",
+								"value": "admin",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"BookID\": 1,\r\n    \"Title\": \"Where the Falcon Flies\",\r\n    \"Description\": \"A thrilling adventure across the Arctic by one of Canada's most daring explorers\",\r\n    \"Author\": \"Adam Shoalts\",\r\n    \"Genre\": \"Non-fiction, Travel, Adventure\",\r\n    \"Image\": \"images/books/1.webp\",\r\n    \"Price\": 29.47,\r\n    \"Rating\": 4.5,\r\n    \"ReleaseDate\": \"2023-01-15\"\r\n},\r\n{\r\n    \"BookID\": 2,\r\n    \"Title\": \"The Kite Runner 20th Anniversary Edition\",\r\n    \"Description\": \"A special edition of the unforgettable bestseller that launched Khaled Hosseini's career as one of the most acclaimed writers of our time\",\r\n    \"Author\": \"Khaled Hosseini\",\r\n    \"Genre\": \"Fiction, Historical, Drama\",\r\n    \"Image\": \"images/books/2.webp\",\r\n    \"Price\": 33.57,\r\n    \"Rating\": 4.8,\r\n    \"ReleaseDate\": \"2023-02-22\"\r\n},\r\n{\r\n    \"BookID\": 3,\r\n    \"Title\": \"The Work of the Future\",\r\n    \"Description\": \"A comprehensive analysis of the challenges and opportunities posed by the changing nature of work in the twenty-first century\",\r\n    \"Author\": \"David H. Autor, David A. Mindell and Elisabeth B. Reynolds; foreword by Robert M. Solow\",\r\n    \"Genre\": \"Non-fiction, Business, Economics\",\r\n    \"Image\": \"images/books/3.webp\",\r\n    \"Price\": 25.45,\r\n    \"Rating\": 4.2,\r\n    \"ReleaseDate\": \"2023-03-10\"\r\n},\r\n{\r\n    \"BookID\": 4,\r\n    \"Title\": \"The Fraud\",\r\n    \"Description\": \"A brilliant and hilarious satire of the art world and the human condition by the Booker Prize-winning author of White Teeth\",\r\n    \"Author\": \"Zadie Smith\",\r\n    \"Genre\": \"Fiction, Humor, Contemporary\",\r\n    \"Image\": \"images/books/4.webp\",\r\n    \"Price\": 23.39,\r\n    \"Rating\": 4.6,\r\n    \"ReleaseDate\": \"2023-04-05\"\r\n},\r\n{\r\n    \"BookID\": 5,\r\n    \"Title\": \"The Daily Laws\",\r\n    \"Description\": \"A practical guide to mastering the art of power, strategy, and persuasion from the bestselling author of The 48 Laws of Power\",\r\n    \"Author\": \"Robert Greene\",\r\n    \"Genre\": \"Non-fiction, Self-help, Psychology\",\r\n    \"Image\": \"images/books/5.webp\",\r\n    \"Price\": 19.99,\r\n    \"Rating\": 4.7,\r\n    \"ReleaseDate\": \"2023-05-20\"\r\n},\r\n{\r\n    \"BookID\": 6,\r\n    \"Title\": \"The Girl in the Eagle's Talons\",\r\n    \"Description\": \"A stunning and suspenseful novel about family secrets, love, and revenge in a remote Swedish village\",\r\n    \"Author\": \"Karin Smirnoff\",\r\n    \"Genre\": \"Fiction, Mystery, Thriller\",\r\n    \"Image\": \"images/books/6.webp\",\r\n    \"Price\": 30.82,\r\n    \"Rating\": 4.3,\r\n    \"ReleaseDate\": \"2023-06-12\"\r\n},\r\n{\r\n    \"BookID\": 7,\r\n    \"Title\": \"Harlem After Midnight\",\r\n    \"Description\": \"A captivating and atmospheric historical novel set in 1920s New York City, where a young woman becomes entangled in a murder mystery\",\r\n    \"Author\": \"Louise Hare\",\r\n    \"Genre\": \"Fiction, Historical, Mystery\",\r\n    \"Image\": \"images/books/7.webp\",\r\n    \"Price\": 31.80,\r\n    \"Rating\": 4.4,\r\n    \"ReleaseDate\": \"2023-07-01\"\r\n},\r\n{\r\n    \"BookID\": 8,\r\n    \"Title\": \"The Love Plot\",\r\n    \"Description\": \"A steamy and swoon-worthy romance between a bestselling author and his editor, who have a complicated history and a shared passion for books\",\r\n    \"Author\": \"Samantha Young\",\r\n    \"Genre\": \"Fiction, Romance, Contemporary\",\r\n    \"Image\": \"images/books/8.webp\",\r\n    \"Price\": 19.94,\r\n    \"Rating\": 4.1,\r\n    \"ReleaseDate\": \"2023-08-18\"\r\n},\r\n{\r\n    \"BookID\": 9,\r\n    \"Title\": \"Hotel Magnifique\",\r\n    \"Description\": \"A charming and heartwarming story of friendship, family, and finding love in the most unexpected places\",\r\n    \"Author\": \"Emily J. Taylor\",\r\n    \"Genre\": \"Fiction, Romance, Women's Fiction\",\r\n    \"Image\": \"images/books/9.webp\",\r\n    \"Price\": 16.68,\r\n    \"Rating\": 4.0,\r\n    \"ReleaseDate\": \"2023-09-03\"\r\n},\r\n{\r\n    \"BookID\": 10,\r\n    \"Title\": \"They Called Us Exceptional\",\r\n    \"Description\": \"A powerful and inspiring memoir of a young woman who escaped poverty and discrimination in India to become a successful journalist and activist in America\",\r\n    \"Author\": \"Prachi Gupta\",\r\n    \"Genre\": \"Non-fiction, Memoir, Social Justice\",\r\n    \"Image\": \"images/books/10.webp\",\r\n    \"Price\": 29.99,\r\n    \"Rating\": 4.9,\r\n    \"ReleaseDate\": \"2023-10-15\"\r\n},\r\n{\r\n    \"BookID\": 11,\r\n    \"Title\": \"Wifedom\",\r\n    \"Description\": \"A provocative and compelling exploration of the institution of marriage and the role of women in modern society\",\r\n    \"Author\": \"Anna Funder\",\r\n    \"Genre\": \"Non-fiction, Feminism, Sociology\",\r\n    \"Image\": \"images/books/11.webp\",\r\n    \"Price\": 34.78,\r\n    \"Rating\": 4.6,\r\n    \"ReleaseDate\": \"2023-11-02\"\r\n},\r\n{\r\n    \"BookID\": 12,\r\n    \"Title\": \"Kind of a Big Deal\",\r\n    \"Description\": \"A witty and insightful look at the cultural impact of comedy legends from Monty Python to Tina Fey\",\r\n    \"Author\": \"Saul Austerlitz\",\r\n    \"Genre\": \"Non-fiction, Humor, Entertainment\",\r\n    \"Image\": \"images/books/12.webp\",\r\n    \"Price\": 31.31,\r\n    \"Rating\": 4.3,\r\n    \"ReleaseDate\": \"2023-12-20\"\r\n},\r\n{\r\n    \"BookID\": 13,\r\n    \"Title\": \"A Map for the Missing: A Novel\",\r\n    \"Description\": \"A gripping and emotional story of a young woman's journey to find her missing sister in China.\",\r\n    \"Author\": \"Belinda Huijuan Tang\",\r\n    \"Genre\": \"Fiction\",\r\n    \"Image\": \"images/books/13.webp\",\r\n    \"Price\": 20.99,\r\n    \"Rating\": 4.5,\r\n    \"ReleaseDate\": \"2024-01-08\"\r\n},\r\n{\r\n    \"BookID\": 14,\r\n    \"Title\": \"So Close: A Blacklist Novel\",\r\n    \"Description\": \"A thrilling and sexy novel based on the hit TV series The Blacklist, featuring the enigmatic Raymond Reddington and his partner Elizabeth Keen.\",\r\n    \"Author\": \"Sylvia Day\",\r\n    \"Genre\": \"Romance\",\r\n    \"Image\": \"images/books/14.webp\",\r\n    \"Price\": 38.49,\r\n    \"Rating\": 4.2,\r\n    \"ReleaseDate\": \"2024-02-14\"\r\n},\r\n{\r\n    \"BookID\": 15,\r\n    \"Title\": \"One of Us Is Back\",\r\n    \"Description\": \"The highly anticipated sequel to the New York Times bestseller One of Us Is Lying, featuring a new mystery and a new cast of characters.\",\r\n    \"Author\": \"Karen M. McManus\",\r\n    \"Genre\": \"Mystery\",\r\n    \"Image\": \"images/books/15.webp\",\r\n    \"Price\": 22.99,\r\n    \"Rating\": 4.6,\r\n    \"ReleaseDate\": \"2024-03-05\"\r\n},\r\n{\r\n    \"BookID\": 16,\r\n    \"Title\": \"The Possibilities: A Novel\",\r\n    \"Description\": \"A moving and uplifting novel about a woman who discovers a new meaning of life after losing her husband and son in a ski accident.\",\r\n    \"Author\": \"Yael Goldstein-Love\",\r\n    \"Genre\": \"Literature\",\r\n    \"Image\": \"images/books/16.webp\",\r\n    \"Price\": 32.99,\r\n    \"Rating\": 4.3,\r\n    \"ReleaseDate\": \"2024-04-18\"\r\n},\r\n{\r\n    \"BookID\": 17,\r\n    \"Title\": \"Kala: A Novel\",\r\n    \"Description\": \"A stunning and epic novel that spans generations and continents, telling the story of a family of Indian immigrants in America and their struggle to find their identity and place in the world.\",\r\n    \"Author\": \"Colin Walsh\",\r\n    \"Genre\": \"Historical Fiction\",\r\n    \"Image\": \"images/books/17.webp\",\r\n    \"Price\": 33.99,\r\n    \"Rating\": 4.7,\r\n    \"ReleaseDate\": \"2024-05-22\"\r\n},\r\n{\r\n    \"BookID\": 18,\r\n    \"Title\": \"Elizabeth Finch: A novel\",\r\n    \"Description\": \"A brilliant and captivating novel that reimagines the life of Elizabeth Finch, the first woman to be executed for witchcraft in England.\",\r\n    \"Author\": \"Julian Barnes\",\r\n    \"Genre\": \"Historical Fiction\",\r\n    \"Image\": \"images/books/18.webp\",\r\n    \"Price\": 18.49,\r\n    \"Rating\": 4.4,\r\n    \"ReleaseDate\": \"2024-06-30\"\r\n},\r\n{\r\n    \"BookID\": 19,\r\n    \"Title\": \"Zero-Sum: Stories\",\r\n    \"Description\": \"A collection of dark and provocative stories that explore the themes of power, violence, and revenge, from the acclaimed author of We Were the Mulvaneys and Blonde.\",\r\n    \"Author\": \"Joyce Carol Oates\",\r\n    \"Genre\": \"Short Stories\",\r\n    \"Image\": \"images/books/19.webp\",\r\n    \"Price\": 34.99,\r\n    \"Rating\": 4.1,\r\n    \"ReleaseDate\": \"2024-07-15\"\r\n},\r\n{\r\n    \"BookID\": 20,\r\n    \"Title\": \"Astra: A Novel\",\r\n    \"Description\": \"A dazzling and visionary novel that imagines a near-future where humanity is on the brink of extinction and a young woman must embark on a perilous journey to save the world.\",\r\n    \"Author\": \"Cedar Bowers\",\r\n    \"Genre\": \"Science Fiction\",\r\n    \"Image\": \"images/books/20.webp\",\r\n    \"Price\": 13.99,\r\n    \"Rating\": 4.8,\r\n    \"ReleaseDate\": \"2024-08-28\"\r\n},\r\n{\r\n    \"BookID\": 21,\r\n    \"Title\": \"Hide and Seek: A Novel\",\r\n    \"Description\": \"A suspenseful and twisty novel that follows a mother who is desperate to find her missing daughter, but soon realizes that she is not the only one looking for her.\",\r\n    \"Author\": \"Andrea Mara\",\r\n    \"Genre\": \"Thriller\",\r\n    \"Image\": \"images/books/21.webp\",\r\n    \"Price\": 13.99,\r\n    \"Rating\": 4.5,\r\n    \"ReleaseDate\": \"2024-09-10\"\r\n},\r\n{\r\n    \"BookID\": 22,\r\n    \"Title\": \"The Economic Government of the World\",\r\n    \"Description\": \"A comprehensive and authoritative history of the global institutions and organizations that have shaped the world economy since the nineteenth century.\",\r\n    \"Author\": \"Martin Daunton\",\r\n    \"Genre\": \"Nonfiction\",\r\n    \"Image\": \"images/books/22.webp\",\r\n    \"Price\": 79.99,\r\n    \"Rating\": 4.2,\r\n    \"ReleaseDate\": \"2024-10-22\"\r\n},\r\n{\r\n    \"BookID\": 23,\r\n    \"Title\": \"Sofreh: A Contemporary Approach to Classic Persian Cuisine: A Cookbook\",\r\n    \"Description\": \"A stunning and delicious cookbook that showcases the rich and diverse cuisine of Iran, featuring over 100 recipes for soups, salads, stews, rice dishes, breads, desserts, and more.\",\r\n    \"Author\": \"Nasim Alikhani\",\r\n    \"Genre\": \"Cooking\",\r\n    \"Image\": \"images/books/23.webp\",\r\n    \"Price\": 46.99,\r\n    \"Rating\": 4.9,\r\n    \"ReleaseDate\": \"2024-11-15\"\r\n},\r\n{\r\n    \"BookID\": 24,\r\n    \"Title\": \"Range: Why Generalists Triumph in a Specialized World\",\r\n    \"Description\": \"A groundbreaking and eye-opening book that challenges the conventional wisdom that the best way to succeed is to focus on a specific field or skill, and shows how having a range of interests and experiences can lead to greater creativity, innovation, and success.\",\r\n    \"Author\": \"David Epstein\",\r\n    \"Genre\": \"Self-Help\",\r\n    \"Image\": \"images/books/24.webp\",\r\n    \"Price\": 16.99,\r\n    \"Rating\": 4.6,\r\n    \"ReleaseDate\": \"2024-12-05\"\r\n},\r\n{\r\n    \"BookID\": 25,\r\n    \"Title\": \"The Forbidden Territory of a Terrifying Woman: A Novel\",\r\n    \"Description\": \"A thrilling and suspenseful novel about a woman who is hunted by a mysterious group of assassins after she discovers a shocking secret in her past.\",\r\n    \"Author\": \"Molly Lynch\",\r\n    \"Genre\": \"Thriller\",\r\n    \"Image\": \"images/books/25.webp\",\r\n    \"Price\": 30.99,\r\n    \"Rating\": 4.5,\r\n    \"ReleaseDate\": \"2023-01-15\"\r\n},\r\n{\r\n    \"BookID\": 26,\r\n    \"Title\": \"Nuclear Family: A Novel\",\r\n    \"Description\": \"A poignant and humorous novel about a Korean American family that struggles to cope with the aftermath of a nuclear accident that affects their lives in unexpected ways.\",\r\n    \"Author\": \"Joseph Han\",\r\n    \"Genre\": \"Literary Fiction\",\r\n    \"Image\": \"images/books/26.webp\",\r\n    \"Price\": 20.99,\r\n    \"Rating\": 4.2,\r\n    \"ReleaseDate\": \"2023-02-08\"\r\n},\r\n{\r\n    \"BookID\": 27,\r\n    \"Title\": \"In Other Words, Leadership: How a Young Mother's Weekly Letters to Her Governor Helped Both Women Brave the First Pandemic Year\",\r\n    \"Description\": \"A inspiring and empowering memoir about how a young mother's weekly letters to her governor during the COVID-19 pandemic led to a friendship and a mutual support that helped both women overcome their challenges and find their voices.\",\r\n    \"Author\": \"Shannon A. Mullen\",\r\n    \"Genre\": \"Memoir\",\r\n    \"Image\": \"images/books/27.webp\",\r\n    \"Price\": 36.99,\r\n    \"Rating\": 4.8,\r\n    \"ReleaseDate\": \"2023-03-20\"\r\n},\r\n{\r\n    \"BookID\": 28,\r\n    \"Title\": \"We've Got This: Unlocking the Beauty of Belonging\",\r\n    \"Description\": \"A powerful and practical guide to building authentic and inclusive communities that foster a sense of belonging and connection for everyone.\",\r\n    \"Author\": \"Ritu Bhasin\",\r\n    \"Genre\": \"Self-Help\",\r\n    \"Image\": \"images/books/28.webp\",\r\n    \"Price\": 21.99,\r\n    \"Rating\": 4.6,\r\n    \"ReleaseDate\": \"2023-04-12\"\r\n},\r\n{\r\n    \"BookID\": 29,\r\n    \"Title\": \"The Mythmakers: A Novel\",\r\n    \"Description\": \"A captivating and complex novel about a young woman who becomes entangled in a web of lies and deception when she joins a secretive cult that promises to reveal the truth about her identity and destiny.\",\r\n    \"Author\": \"Keziah Weir\",\r\n    \"Genre\": \"Mystery\",\r\n    \"Image\": \"images/books/29.webp\",\r\n    \"Price\": 29.99,\r\n    \"Rating\": 4.1,\r\n    \"ReleaseDate\": \"2023-05-05\"\r\n},\r\n{\r\n    \"BookID\": 30,\r\n    \"Title\": \"Knife Drop: Creative Recipes Anyone Can Cook\",\r\n    \"Description\": \"A fun and easy cookbook that features over 100 delicious and inventive recipes that anyone can make with simple ingredients and a knife.\",\r\n    \"Author\": \"Nick DiGiovanni\",\r\n    \"Genre\": \"Cookbook\",\r\n    \"Image\": \"images/books/30.webp\",\r\n    \"Price\": 38.99,\r\n    \"Rating\": 4.7,\r\n    \"ReleaseDate\": \"2023-06-18\"\r\n},\r\n{\r\n    \"BookID\": 31,\r\n    \"Title\": \"Love, Theoretically\",\r\n    \"Description\": \"A charming and witty romantic comedy about a physics professor who falls in love with a former student who challenges his rational worldview.\",\r\n    \"Author\": \"Ali Hazelwood\",\r\n    \"Genre\": \"Romance\",\r\n    \"Image\": \"images/books/31.webp\",\r\n    \"Price\": 31.99,\r\n    \"Rating\": 4.4,\r\n    \"ReleaseDate\": \"2023-07-09\"\r\n},\r\n{\r\n    \"BookID\": 32,\r\n    \"Title\": \"You Can Trust Me: A Novel\",\r\n    \"Description\": \"A gripping and twisty psychological thriller about a woman who is hired to spy on her best friend's husband, but soon discovers that nothing is as it seems.\",\r\n    \"Author\": \"Wendy Heard\",\r\n    \"Genre\": \"Thriller\",\r\n    \"Image\": \"images/books/32.webp\",\r\n    \"Price\": 32.99,\r\n    \"Rating\": 4.3,\r\n    \"ReleaseDate\": \"2023-08-21\"\r\n},\r\n{\r\n    \"BookID\": 33,\r\n    \"Title\": \"The Only One Left\",\r\n    \"Description\": \"A haunting and suspenseful novel about a woman who returns to her hometown after a decade to investigate the disappearance of her childhood friend, only to find that she may be the next victim.\",\r\n    \"Author\": \"Riley Sager\",\r\n    \"Genre\": \"Thriller\",\r\n    \"Image\": \"images/books/33.webp\",\r\n    \"Price\": 15.99,\r\n    \"Rating\": 4.2,\r\n    \"ReleaseDate\": \"2023-09-14\"\r\n},\r\n{\r\n    \"BookID\": 34,\r\n    \"Title\": \"If We Break: A Memoir of Marriage, Addiction, and Healing\",\r\n    \"Description\": \"A raw and honest memoir about a woman who chronicles her journey of healing and recovery after her husband's addiction to opioids nearly destroys their marriage.\",\r\n    \"Author\": \"Kathleen Buhle\",\r\n    \"Genre\": \"Memoir\",\r\n    \"Image\": \"images/books/34.webp\",\r\n    \"Price\": 21.99,\r\n    \"Rating\": 4.5,\r\n    \"ReleaseDate\": \"2023-10-02\"\r\n},\r\n{\r\n    \"BookID\": 35,\r\n    \"Title\": \"The Mutual Friend: A Novel\",\r\n    \"Description\": \"A clever and humorous novel about a man who pretends to be friends with a famous author in order to impress his crush, but soon finds himself in a web of lies and complications.\",\r\n    \"Author\": \"Carter Bays\",\r\n    \"Genre\": \"Romantic Comedy\",\r\n    \"Image\": \"images/books/35.webp\",\r\n    \"Price\": 20.99,\r\n    \"Rating\": 4.1,\r\n    \"ReleaseDate\": \"2023-11-15\"\r\n},\r\n{\r\n    \"BookID\": 36,\r\n    \"Title\": \"The Spectacular: A Novel\",\r\n    \"Description\": \"A dazzling and historical novel about three generations of women who are connected by a secret that spans from the 1940s to the present day.\",\r\n    \"Author\": \"Fiona Davis\",\r\n    \"Genre\": \"Historical Fiction\",\r\n    \"Image\": \"images/books/36.webp\",\r\n    \"Price\": 22.49,\r\n    \"Rating\": 4.3,\r\n    \"ReleaseDate\": \"2023-12-08\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/addBook",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"addBook"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://127.0.0.1:9000/addBook",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "9000",
-					"path": [
-						"addBook"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Create User",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "user-type",
-						"value": "admin",
-						"type": "text",
-						"disabled": true
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"UserID\": 1,\r\n    \"UserName\": \"admin\",\r\n    \"FirstName\": \"admin\",\r\n    \"LastName\": \"admin\",\r\n    \"Email\": \"admin@mail.com\",\r\n    \"Password\": \"passsword\",\r\n    \"Address\": \"N/A\",\r\n    \"Role\": \"admin\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "Get Book by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:9000/getBook/12",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"getBook",
+								"12"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://127.0.0.1:9000/createUser",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "9000",
-					"path": [
-						"createUser"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Create User Copy",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "user-type",
-						"value": "admin",
-						"type": "text",
-						"disabled": true
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"userId\": 1,\r\n    \"username\": \"admin\",\r\n    \"firstName\": \"admin\",\r\n    \"lastName\": \"user\",\r\n    \"email\": \"admin@mail.com\",\r\n    \"password\": \"passsword\",\r\n    \"address\": \"N/A\",\r\n    \"role\": \"admin\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "Get list of Books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:9000/getBooks",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"getBooks"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://127.0.0.1:9000/updateUser/1",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "9000",
-					"path": [
-						"updateUser",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Update Book",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "role",
-						"value": "admin",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"BookID\": 1,\r\n    \"Title\": \"Harry Potter\",\r\n    \"Description\": \"Book about wizards\",\r\n    \"ReleaseDate\": \"2020-02-27T01:08:51.000Z\",\r\n    \"Author\": \"JK Rowling\",\r\n    \"Genre\": \"Fantasy\",\r\n    \"Image\": \"images/books/10.webp\",\r\n    \"Price\": 30,\r\n    \"Rating\": 4\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "Delete Book",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "role",
+								"value": "admin",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:9000/deleteBook/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"deleteBook",
+								"1"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://127.0.0.1:9000/updateBook/1",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "9000",
-					"path": [
-						"updateBook",
-						"1"
-					]
+				{
+					"name": "Update Book",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "role",
+								"value": "admin",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"BookID\": 1,\r\n    \"Title\": \"Harry Potter\",\r\n    \"Description\": \"Book about wizards\",\r\n    \"ReleaseDate\": \"2020-02-27T01:08:51.000Z\",\r\n    \"Author\": \"JK Rowling\",\r\n    \"Genre\": \"Fantasy\",\r\n    \"Image\": \"images/books/10.webp\",\r\n    \"Price\": 30,\r\n    \"Rating\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/updateBook/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"updateBook",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Book",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:9000/searchBook/JK Rowling",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"searchBook",
+								"JK Rowling"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Get list of Books",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://127.0.0.1:9000/getBooks",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "9000",
-					"path": [
-						"getBooks"
-					]
+			"name": "User",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "user-type",
+								"value": "admin",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"UserID\": 1,\r\n    \"UserName\": \"scooper\",\r\n    \"FirstName\": \"Sheldon\",\r\n    \"LastName\": \"Cooper\",\r\n    \"Email\": \"scooper@mail.com\",\r\n    \"Password\": \"passsword\",\r\n    \"Address\": \"N/A\",\r\n    \"Role\": \"customer\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/createUser",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"createUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "user-type",
+								"value": "admin",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 1,\r\n    \"username\": \"admin\",\r\n    \"firstName\": \"admin\",\r\n    \"lastName\": \"user\",\r\n    \"email\": \"admin@mail.com\",\r\n    \"password\": \"passsword\",\r\n    \"address\": \"N/A\",\r\n    \"role\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/updateUser/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"updateUser",
+								"1"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Get Book by ID",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://127.0.0.1:9000/getBook/1",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "9000",
-					"path": [
-						"getBook",
-						"1"
-					]
+			"name": "Order",
+			"item": [
+				{
+					"name": "Place an order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "user-type",
+								"value": "admin",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"OrderID\": 1,\r\n    \"UserID\": 1,\r\n    \"OrderDate\": \"2023-11-28\",\r\n    \"OrderStatus\": \"Pending\",\r\n    \"OrderDetails\": [\r\n        {\r\n            \"OrderDetailID\": 1,\r\n            \"BookID\": 1,\r\n            \"Quantity\": 2,\r\n            \"Price\": 44.98\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/placeAnOrder",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"placeAnOrder"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Delete Book",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "role",
-						"value": "admin",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "http://127.0.0.1:9000/deleteBook/1",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "9000",
-					"path": [
-						"deleteBook",
-						"1"
-					]
+			"name": "Inventory",
+			"item": [
+				{
+					"name": "Add Inventory",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "user-type",
+								"value": "admin",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"InventoryID\": 1,\r\n    \"BookID\": 1,\r\n    \"QuantityInStock\": 5\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/addInventory",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"addInventory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Inventory",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "user-type",
+								"value": "admin",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:9000/getInventory",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"getInventory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Inventory",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "user-type",
+								"value": "admin",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"BookID\": 1,\r\n    \"QuantityInStock\": 7\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9000/updateInventory",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"updateInventory"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "Search Book",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://127.0.0.1:9000/searchBook/JK Rowling",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "9000",
-					"path": [
-						"searchBook",
-						"JK Rowling"
-					]
-				}
-			},
-			"response": []
+			]
 		}
 	]
 }
