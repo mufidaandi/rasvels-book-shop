@@ -7,7 +7,7 @@ const orderSchema = mongoose.Schema({
     unique: true,
     index: true,
   },
-  CustomerID: {
+  UserID: {
     type: Number,
     required: true,
     maxlength: 10,
