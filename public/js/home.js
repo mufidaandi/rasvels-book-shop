@@ -39,29 +39,61 @@ function addImageHoverHandlers(imageId) {
   $(imageId).on("mouseleave", () => reduceAnimation(imageId));
 }
 
-// function enlargeAnimation1() {
-//   $("#topseller-image").css("width", "110%");
-// }
+function featuredBook() {
+  const bookId = '1';
+  fetch(`/getBook/${bookId}`)
+    .then((response) => response.json())
+    .then((book) => {
+      const ratingStars = getRatingStars(book.Rating);
+      document.getElementById('book-cover').innerHTML = `<img src="${book.Image}" alt="Book Cover">`;
+      document.getElementById('book-details').innerHTML = `
+        <p class="book-title">${book.Title}</p>
+        <p class="book-descrip">${book.Description}</p>
+        <p>by ${book.Author}</p>
+        <p><b>$${book.Price.toFixed(2)}</b></p>
+        <p>${ratingStars}</p>
+        <button class="button addToCart">ADD TO CART</button>
+      `;
+    })
+    .catch((error) => console.error('Error fetching book:', error));
+}
 
-// function reduceAnimation1() {
-//   $("#topseller-image").css("width", "100%");
-// }
+function topSellers(){
+  fetch('/getBooks')
+  .then(response => response.json())
+  .then(books => {
+      const sortedBooks = books.sort((a, b) => b.Rating - a.Rating);
+      const topBooks = sortedBooks.slice(0, 3);
+      const topBooksContainer = document.getElementById('top-sellers-container');
 
-// function enlargeAnimation2() {
-//   $("#newrelease-image").css("width", "110%");
-// }
+      topBooks.forEach(book => {
+          const bookDiv = document.createElement('div');
+          bookDiv.innerHTML = `
+              <img src="${book.Image}" alt="Book Cover">
+              <p class="book-title">${book.Title}</p>
+              <p>by ${book.Author}</p>
+              <button class="button addToCart">ADD TO CART</button>
+          `;
+          bookDiv.className = 'book-wrapper';
+          topBooksContainer.appendChild(bookDiv);
+      });
+  })
+  .catch(error => console.error('Error fetching books:', error));
+}
 
-// function reduceAnimation2() {
-//   $("#newrelease-image").css("width", "100%");
-// }
+function getRatingStars(rating) {
+  const fullStars = Math.floor(rating);
+  const halfStar = rating % 1 !== 0;
+  const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
 
-// function enlargeAnimation3() {
-//   $("#deals-image").css("width", "110%");
-// }
+  const starHTML = (type) => `<i class="fas fa-star${type === 'half' ? '-half-alt' : ''}"></i>`;
 
-// function reduceAnimation3() {
-//   $("#deals-image").css("width", "100%");
-// }
+  const starsArray = Array(fullStars).fill(starHTML('full'))
+    .concat(halfStar ? [starHTML('half')] : [])
+    .concat(Array(emptyStars).fill(starHTML('empty')));
+
+  return starsArray.join('');
+}
 
 function topRatedProducts() {
   var topProducts;
@@ -158,6 +190,8 @@ function topRatedProducts() {
   });
 }
 
+
+
 $(document).ready(function () {
   showSlides();
   setInterval(function () {
@@ -172,5 +206,7 @@ $(document).ready(function () {
   addImageHoverHandlers("#fantasy-image");
   addImageHoverHandlers("#romance-image");
 
-  topRatedProducts();
+  // topRatedProducts();
+  featuredBook();
+  topSellers();
 });

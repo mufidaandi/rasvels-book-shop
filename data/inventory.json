@@ -1,0 +1,183 @@
+[
+    {
+      "InventoryID": 1,
+      "BookID": 1,
+      "QuantityInStock": 50
+    },
+    {
+      "InventoryID": 2,
+      "BookID": 2,
+      "QuantityInStock": 30
+    },
+    {
+      "InventoryID": 3,
+      "BookID": 3,
+      "QuantityInStock": 20
+    },
+    {
+      "InventoryID": 4,
+      "BookID": 4,
+      "QuantityInStock": 40
+    },
+    {
+      "InventoryID": 5,
+      "BookID": 5,
+      "QuantityInStock": 60
+    },
+    {
+      "InventoryID": 6,
+      "BookID": 6,
+      "QuantityInStock": 25
+    },
+    {
+      "InventoryID": 7,
+      "BookID": 7,
+      "QuantityInStock": 35
+    },
+    {
+      "InventoryID": 8,
+      "BookID": 8,
+      "QuantityInStock": 15
+    },
+    {
+      "InventoryID": 9,
+      "BookID": 9,
+      "QuantityInStock": 10
+    },
+    {
+      "InventoryID": 10,
+      "BookID": 10,
+      "QuantityInStock": 55
+    },
+    {
+      "InventoryID": 11,
+      "BookID": 11,
+      "QuantityInStock": 28
+    },
+    {
+      "InventoryID": 12,
+      "BookID": 12,
+      "QuantityInStock": 42
+    },
+    {
+      "InventoryID": 13,
+      "BookID": 13,
+      "QuantityInStock": 48
+    },
+    {
+      "InventoryID": 14,
+      "BookID": 14,
+      "QuantityInStock": 18
+    },
+    {
+      "InventoryID": 15,
+      "BookID": 15,
+      "QuantityInStock": 22
+    },
+    {
+      "InventoryID": 16,
+      "BookID": 16,
+      "QuantityInStock": 37
+    },
+    {
+      "InventoryID": 17,
+      "BookID": 17,
+      "QuantityInStock": 40
+    },
+    {
+      "InventoryID": 18,
+      "BookID": 18,
+      "QuantityInStock": 25
+    },
+    {
+      "InventoryID": 19,
+      "BookID": 19,
+      "QuantityInStock": 30
+    },
+    {
+      "InventoryID": 20,
+      "BookID": 20,
+      "QuantityInStock": 50
+    },
+    {
+      "InventoryID": 21,
+      "BookID": 21,
+      "QuantityInStock": 15
+    },
+    {
+      "InventoryID": 22,
+      "BookID": 22,
+      "QuantityInStock": 10
+    },
+    {
+      "InventoryID": 23,
+      "BookID": 23,
+      "QuantityInStock": 28
+    },
+    {
+      "InventoryID": 24,
+      "BookID": 24,
+      "QuantityInStock": 20
+    },
+    {
+      "InventoryID": 25,
+      "BookID": 25,
+      "QuantityInStock": 45
+    },
+    {
+      "InventoryID": 26,
+      "BookID": 26,
+      "QuantityInStock": 32
+    },
+    {
+      "InventoryID": 27,
+      "BookID": 27,
+      "QuantityInStock": 23
+    },
+    {
+      "InventoryID": 28,
+      "BookID": 28,
+      "QuantityInStock": 17
+    },
+    {
+      "InventoryID": 29,
+      "BookID": 29,
+      "QuantityInStock": 38
+    },
+    {
+      "InventoryID": 30,
+      "BookID": 30,
+      "QuantityInStock": 42
+    },
+    {
+      "InventoryID": 31,
+      "BookID": 31,
+      "QuantityInStock": 20
+    },
+    {
+      "InventoryID": 32,
+      "BookID": 32,
+      "QuantityInStock": 25
+    },
+    {
+      "InventoryID": 33,
+      "BookID": 33,
+      "QuantityInStock": 30
+    },
+    {
+      "InventoryID": 34,
+      "BookID": 34,
+      "QuantityInStock": 15
+    },
+    {
+      "InventoryID": 35,
+      "BookID": 35,
+      "QuantityInStock": 28
+    },
+    {
+      "InventoryID": 36,
+      "BookID": 36,
+      "QuantityInStock": 20
+    }
+  ]
+  

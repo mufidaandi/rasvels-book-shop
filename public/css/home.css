@@ -1,14 +1,86 @@
-.book-container {
+.botd-container, .top-sellers-container {
   width: 80%;
+  height: 100vh;
+  margin: auto;  
+  font-size: x-large;
   display: flex;
-  margin: auto;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#top-sellers-container {
+  text-align: center;
+  font-size: large;
+}
+
+#top-sellers-container .book-title {
+  font-size: x-large;
+}
+
+.book-wrapper {
+  margin: 20px;
+}
+
+.fa-star, .fa-star-half-alt {
+  font-size: large;
+  color: #ffc107;
 }
 
 .book {
-  height: 450px;
   width: 100%;
   padding: 20px;
   color: #8a4421;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.book-title {
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+
+#book-details {
+  width: 50%;
+  padding: 20px;
+  text-align: center;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.addToCart {
+  background-color: white;
+  color: #8a4421;
+  border: 2px solid #8a4421;
+  transition: 0.2s;
+}
+
+.addToCart:hover { 
+  background-color: #8a4421;
+  color: white;
+}
+
+.book-descrip, .botd-heading {
+  font-style: italic;
+  font-family: 'Arapey, serif';
+  text-align: center;
+  color: #8a4421;
+}
+
+.botd-heading {
+  font-size: xx-large;
 }
 
 #product-list,
