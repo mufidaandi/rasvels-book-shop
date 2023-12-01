@@ -61,22 +61,13 @@ function setCategories() {
   });
 }
 
-$(document).ready(function () {
-  setCategories();
+function displayBooks(endpoint) {  
   const productList = $("#product-list");
-
-  // Fetch books based on the genre from the server
-  const genre = getUrlParameter('genre');
-  const endpoint = genre ? `/getBookByGenre/${genre}` : '/getBooks';
-
-  if (genre) {
-    jQuery("#genre").text(genre.toUpperCase());
-  }
-
   // Fetch books from the server
   fetch(endpoint)
     .then((response) => response.json())
     .then((books) => {
+      console.log("endpoint " + endpoint);
       books.forEach((book) => {
         // Create a div for the book card
         const bookCard = $('<div class="product-card"></div>');
@@ -106,6 +97,12 @@ $(document).ready(function () {
         const truncatedTitle =
           title.length > 50 ? title.substring(0, 50) + "..." : title;
         bookTitle.append(truncatedTitle);
+
+        const bookAuthor = $('<p class="product-author"></p>');
+        const author = book.Author;
+        const truncatedAuthor =
+          author.length > 30 ? "by " + author.substring(0, 30) + "..." : "by " + author;
+        bookAuthor.append(truncatedAuthor);
 
         // Create a Span for quantity of available book
         const bookQuantity = $('<span id="product-quantity"></span>');
@@ -150,6 +147,7 @@ $(document).ready(function () {
 
         // Add the book title, price, and rating to the book details
         bookDetails.append(bookTitle);
+        bookDetails.append(bookAuthor);
         bookDetails.append(bookQuantity);
         bookDetails.append(bookPrice);
         bookDetails.append(bookRating);
@@ -163,4 +161,23 @@ $(document).ready(function () {
       });
     })
     .catch((error) => console.error("Error fetching books:", error));
+}
+
+$(document).ready(function () {
+  setCategories();
+
+  // Fetch books based on the genre or search keyword from the server
+  const genre = getUrlParameter('genre');
+  const searchKeyword = getUrlParameter('search');
+  var endpoint = '/getBooks';
+
+  if (genre) {
+    jQuery("#genre").text(genre.toUpperCase());
+    endpoint = genre ? `/getBookByGenre/${genre}` : '/getBooks';
+  } else if (searchKeyword) {
+    jQuery("#genre").text("Showing results for: " + searchKeyword);
+    endpoint = searchKeyword ? `/searchBook/${searchKeyword}` : '/getBooks';
+  }
+
+  displayBooks(endpoint);
 });

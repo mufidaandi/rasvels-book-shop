@@ -38,7 +38,7 @@
 /* Product name */
 .product-name {
   font-size: 14px;
-  height: 50px;
+  height: 30px;
   color: #0f1111;
   text-align: left;
 }
@@ -232,4 +232,9 @@ hr {
   font-family: 'Montserrat';
   font-style: normal;
   font-size: larger;
+}
+
+.product-author {
+  color:#8a4421;  
+  font-size: 12px;
 }
