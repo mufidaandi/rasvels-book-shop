@@ -1,32 +1,15 @@
 var getUrlParameter = function getUrlParameter(sParam) {
-  var sPageURL = window.location.search.substring(1),
-    sURLVariables = sPageURL.split("&"),
-    sParameterName,
-    i;
-
-  for (i = 0; i < sURLVariables.length; i++) {
-    sParameterName = sURLVariables[i].split("=");
-
-    if (sParameterName[0] === sParam) {
-      return sParameterName[1] === undefined
-        ? true
-        : decodeURIComponent(sParameterName[1]);
-    }
-  }
-  return false;
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(sParam);
 };
 
 function setCategories() {
   const categorizedGenres = {
     Fiction: [
-      "Historical",
-      "Drama",
+      "Historical", 
       "Mystery",
       "Thriller",
-      "Romance",
-      "Women's Fiction",
-      "Literary Fiction",
-      "Romantic Comedy",
+      "Romance"
     ],
     "Non-fiction": [
       "Travel",
@@ -35,17 +18,14 @@ function setCategories() {
       "Economics",
       "Psychology",
       "Memoir",
-      "Social Justice",
       "Sociology",
-      "Literature",
-      "Science Fiction",
+      "Literature"
     ],
     Others: [
       "Entertainment",
       "Self-help",
       "Contemporary",
-      "Feminism",
-      "Short Stories",
+      "Feminism"
     ],
   };
   const categoriesSection = document.getElementById("categoriesSection");
@@ -55,7 +35,7 @@ function setCategories() {
     groupDiv.classList.add("categ-title");
 
     const groupLink = document.createElement("a");
-    groupLink.href = `books-list.html?category=${categoryGroup.toLowerCase()}`;
+    groupLink.href = `books-list.html?genre=${categoryGroup.toLowerCase()}`;
     groupLink.textContent = categoryGroup;
     groupDiv.appendChild(groupLink);
 
@@ -68,7 +48,7 @@ function setCategories() {
     categorizedGenres[categoryGroup].forEach((genre) => {
       const listItem = document.createElement("li");
       const genreLink = document.createElement("a");
-      genreLink.href = `books-list.html?category=${genre
+      genreLink.href = `books-list.html?genre=${genre
         .toLowerCase()
         .replace(/ /g, "_")}`;
       genreLink.textContent = genre;
@@ -85,8 +65,16 @@ $(document).ready(function () {
   setCategories();
   const productList = $("#product-list");
 
+  // Fetch books based on the genre from the server
+  const genre = getUrlParameter('genre');
+  const endpoint = genre ? `/getBookByGenre/${genre}` : '/getBooks';
+
+  if (genre) {
+    jQuery("#genre").text(genre.toUpperCase());
+  }
+
   // Fetch books from the server
-  fetch("/getBooks")
+  fetch(endpoint)
     .then((response) => response.json())
     .then((books) => {
       books.forEach((book) => {

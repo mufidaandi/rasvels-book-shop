@@ -1,7 +1,7 @@
 /* Product list container */
 #product-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, calc(33.33% - 1rem)));
   padding: 1% 1%;
   margin: 1rem;
   gap: 0rem;
@@ -225,4 +225,11 @@ hr {
 .shop-banner {
   font-family: 'Arapey, serif';
   font-style: italic;
+}
+
+#genre {
+  text-align: center;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-size: larger;
 }
