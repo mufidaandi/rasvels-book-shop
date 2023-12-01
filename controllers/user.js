@@ -15,8 +15,15 @@ const createUser = async (req, res) => {
              return res.status(400).json({ message: 'User with the same UserName already exists' });
          }
 
+         // Find the user with the maximum UserID
+         const lastUser = await UserData.findOne({}, {}, { sort: { 'UserID': -1 } });
+
+         // Determine the new UserID
+         const newUserID = lastUser ? lastUser.UserID + 1 : 1;
+
+
          const newUserData = new UserData({
-            UserID, 
+            UserID: newUserID, 
             UserName, 
             FirstName, 
             LastName, 
