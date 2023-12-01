@@ -40,7 +40,7 @@ const userSchema = mongoose.Schema({
   Role: {
     type: String,
     required: true,
-    maxlength: 10,
+    maxlength: 10
   }
 });
 
