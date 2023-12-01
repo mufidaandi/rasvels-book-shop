@@ -41,7 +41,7 @@ function addImageHoverHandlers(imageId) {
 
 function featuredBook() {
   const bookId = '1';
-  fetch(`/getBook/${bookId}`)
+  fetch(`/getBookById/${bookId}`)
     .then((response) => response.json())
     .then((book) => {
       const ratingStars = getRatingStars(book.Rating);

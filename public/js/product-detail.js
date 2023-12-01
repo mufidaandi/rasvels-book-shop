@@ -29,7 +29,7 @@ function getRandomInt(min, max) {
 // Function to fetch book details by ID
 function getBookById(bookId) {
   // Replace this with your actual API endpoint
-  return fetch(`getBook/${bookId}`)
+  return fetch(`getBookById/${bookId}`)
     .then((response) => response.json())
     .then((data) => data);
 }
