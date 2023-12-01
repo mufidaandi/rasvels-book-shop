@@ -2,12 +2,11 @@
 <html>
   <head>
     <title>Products</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-qLS9/1ZS6SdW8/zyfOrhpeTRhJIKPtNGS1mSKQKjfvZhDg4eNYhRLH4lK5z5/LtjyNTtHnbS5S54EHiFL/NKw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="images/favicon.ico" />
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/footer.css" />
     <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/product-list.css" />
+    <link rel="stylesheet" href="css/books-list.css" />
     <link rel="stylesheet" href="css/vendor/ecicons.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap">
@@ -15,7 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
     <script src="js/nav.js"></script>
     <script src="js/products.js"></script>
-    <script src="js/product-list.js"></script>
+    <script src="js/books-list.js"></script>
     <script src="js/users.js"></script>    
     <script src="https://kit.fontawesome.com/735452579a.js" crossorigin="anonymous"></script>
     <meta charset="utf-8" />
@@ -105,46 +104,16 @@
     <main id="content-wrapper" class="content-wrapper">
       <div class="container">
         <div class="shop-banner">
-          <img class="shop-banner-img" src="images/shop-cat.png" alt="">
           <div>
-            <h1>ALL PRODUCTS</h1>
-            <hr>
+            <h1>The Book Shop</h1>
           </div>
         </div>
-        <div class="main-wrapper">
-          <section class="categ-section">
+        <div class="main-wrapper"> 
+          <section class="categ-section" id="categoriesSection">
             <div class="categ-heading">Categories</div>
-            <div class="categ-title">
-              <a href="product-list.html?category=cat"></a> 
-              <i id="cat-down" class="ecicon eci-chevron-down"></i>
-            </div>
-            <ul class="subcat-dropdown cat-dropdown">
-              <a href="product-list.html?category=cat_food" id="catfood"><li>Food</li></a>
-              <a href="product-list.html?category=cat_treat" id="cattreat"><li>Treats</li></a>
-              <a href="product-list.html?category=cat_supply" id="catsupply"><li>Supplies</li></a>
-            </ul>            
-            <div class="categ-title">
-              <a href="product-list.html?category=dog">Dog</a> 
-              <i id="dog-down" class="ecicon eci-chevron-down"></i>
-            </div>
-            <ul class="subcat-dropdown dog-dropdown">
-              <a href="product-list.html?category=dog_food" id="dogfood"><li>Food</li></a>
-              <a href="product-list.html?category=dog_treat" id="dogtreat"><li>Treats</li></a>
-              <a href="product-list.html?category=dog_supply" id="dogsupply"><li>Supplies</li></a>
-            </ul>  
-            <div class="categ-title">
-              <a href="product-list.html?category=bird">Bird</a> 
-              <i id="bird-down" class="ecicon eci-chevron-down"></i>
-            </div>
-            <ul class="subcat-dropdown bird-dropdown">
-              <a href="product-list.html?category=bird_food" id="birdfood"><li>Food</li></a>
-              <a href="product-list.html?category=bird_treat" id="birdtreat"><li>Treats</li></a>
-              <a href="product-list.html?category=bird_supply" id="birdsupply"><li>Supplies</li></a>
-            </ul>    
           </section>
           <div id="product-list"></div>
         </div>
-        
       </div>
     </main>
     <!-- footer contains page info and social media links -->

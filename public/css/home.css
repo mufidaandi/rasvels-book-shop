@@ -20,6 +20,11 @@
 
 .book-wrapper {
   margin: 20px;
+  height: 90%;
+}
+
+.book-wrapper img {
+  height: 60%;
 }
 
 .fa-star, .fa-star-half-alt {

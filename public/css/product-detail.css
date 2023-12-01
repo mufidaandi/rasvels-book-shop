@@ -55,23 +55,14 @@ input::-webkit-inner-spin-button {
 }
 
 
-.single-pro-img .single-product-scroll {
-    position: sticky;
-    top: 30px;
-}
-
 .single-product-cover {
     overflow: hidden;
-    cursor: -webkit-zoom-in;
-    cursor: zoom-in;
 }
 
 .single-nav-thumb {
     width: 100%;
     overflow: hidden;
 }
-
-
 
 .slick-arrow:before {
     content: "";
@@ -96,6 +87,7 @@ input::-webkit-inner-spin-button {
 .img-responsive {
     max-width: 100%;
     display: block;
+    margin: auto;
 }
 
 .slick-arrow {
@@ -173,16 +165,21 @@ button {
 
 
 .single-pro-content .ec-single-title {
-    color: #444444;
-    font-size: 22px;
+    color: #945f41;
+    font-size: xx-large;
     text-transform: capitalize;
-    margin: 0 0 20px 0;
+    margin: 0 0 10px 0;
     text-decoration: none;
     display: block;
-    font-family: "Poppins";
+    font-family: 'Arapey';
+    font-style: italic;
     font-weight: 800;
     line-height: 30px;
     letter-spacing: 0.02rem;
+}
+
+.ec-single-author {
+    margin: 0 0 20px 0;
 }
 
 .single-pro-content .ec-single-rating-wrap {
@@ -539,6 +536,20 @@ a {
     -ms-flex-pack: justify;
     justify-content: space-between;
     padding: 10px 0;
+}
+
+.qty-btn {
+    background-color: #ffffff;
+    border: 1px solid #eeeeee;
+    color: #333333;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 8px 12px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.qty-btn:hover {
+    background-color: #eeeeee;
 }
 
 .single-pro-content .ec-single-qty .qty-plus-minus .ec_qtybtn {
