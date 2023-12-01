@@ -29,6 +29,23 @@ const getBookById = async (req, res) => {
     }
 };
 
+// Getting books by Genre
+const getBookByGenre = async (req, res) => {
+    try {
+        const query = req.params.query;
+        const books = await BookData.find({
+            $or: [
+                { Genre: { $regex: query, $options: "i" } }
+            ],
+        });
+
+        res.status(200).json(books);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+
 //Searching book by Title, Author or Genre
 const searchBooks = async (req, res) => {
     try {
@@ -119,6 +136,7 @@ const deleteBook = async (req, res) => {
 
 module.exports.getBooks = getBooks;
 module.exports.getBookById = getBookById;
+module.exports.getBookByGenre = getBookByGenre;
 module.exports.searchBooks = searchBooks;
 module.exports.addBook = addBook;
 module.exports.updateBook = updateBook;

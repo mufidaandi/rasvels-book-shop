@@ -52,7 +52,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:9000/getBook/12",
+							"raw": "http://127.0.0.1:9000/getBookById/12",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -62,8 +62,31 @@
 							],
 							"port": "9000",
 							"path": [
-								"getBook",
+								"getBookById",
 								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Book by Genre",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:9000/getBookByGenre/Non-fiction",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"getBookByGenre",
+								"Non-fiction"
 							]
 						}
 					},
@@ -165,7 +188,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:9000/searchBook/JK Rowling",
+							"raw": "http://127.0.0.1:9000/searchBook/Adam Shoalts",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -176,7 +199,7 @@
 							"port": "9000",
 							"path": [
 								"searchBook",
-								"JK Rowling"
+								"Adam Shoalts"
 							]
 						}
 					},
@@ -201,7 +224,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"UserID\": 1,\r\n    \"UserName\": \"scooper\",\r\n    \"FirstName\": \"Sheldon\",\r\n    \"LastName\": \"Cooper\",\r\n    \"Email\": \"scooper@mail.com\",\r\n    \"Password\": \"passsword\",\r\n    \"Address\": \"N/A\",\r\n    \"Role\": \"customer\"\r\n}",
+							"raw": "{\r\n    \"UserID\": 1,\r\n    \"UserName\": \"sespina\",\r\n    \"FirstName\": \"Sylvia\",\r\n    \"LastName\": \"Espina\",\r\n    \"Email\": \"espinasylvia16@gmail.com\",\r\n    \"Password\": \"passsword\",\r\n    \"Address\": \"N/A\",\r\n    \"Role\": \"customer\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -239,7 +262,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"userId\": 1,\r\n    \"username\": \"admin\",\r\n    \"firstName\": \"admin\",\r\n    \"lastName\": \"user\",\r\n    \"email\": \"admin@mail.com\",\r\n    \"password\": \"passsword\",\r\n    \"address\": \"N/A\",\r\n    \"role\": \"admin\"\r\n}",
+							"raw": "{\r\n    \"UserID\": 1,\r\n    \"UserName\": \"sespina\",\r\n    \"FirstName\": \"Sylvia\",\r\n    \"LastName\": \"Dy Teves\",\r\n    \"Email\": \"espinasylvia16@gmail.com\",\r\n    \"Password\": \"passsword\",\r\n    \"Address\": \"N/A\",\r\n    \"Role\": \"customer\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -259,6 +282,51 @@
 							"path": [
 								"updateUser",
 								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get list of users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:9000/getUsers",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"getUsers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:9000/getUserById/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"getUserById",
+								"2"
 							]
 						}
 					},
@@ -283,7 +351,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"OrderID\": 1,\r\n    \"UserID\": 1,\r\n    \"OrderDate\": \"2023-11-28\",\r\n    \"OrderStatus\": \"Pending\",\r\n    \"OrderDetails\": [\r\n        {\r\n            \"OrderDetailID\": 1,\r\n            \"BookID\": 1,\r\n            \"Quantity\": 2,\r\n            \"Price\": 44.98\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"OrderID\": 2,\r\n    \"UserID\": 1,\r\n    \"OrderDate\": \"2023-11-28\",\r\n    \"OrderStatus\": \"Pending\",\r\n    \"OrderDetails\": [\r\n        {\r\n            \"OrderDetailID\": 3,\r\n            \"BookID\": 1,\r\n            \"Quantity\": 1,\r\n            \"Price\": 44.98\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -302,6 +370,51 @@
 							"port": "9000",
 							"path": [
 								"placeAnOrder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get list of Orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:9000/getOrders",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"getOrders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get order by user id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:9000/getOrderByUserId/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"getOrderByUserId",
+								"1"
 							]
 						}
 					},
@@ -326,7 +439,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"InventoryID\": 1,\r\n    \"BookID\": 1,\r\n    \"QuantityInStock\": 5\r\n    \r\n}",
+							"raw": "{\r\n    \"InventoryID\": 2,\r\n    \"BookID\": 2,\r\n    \"QuantityInStock\": 5\r\n    \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -393,7 +506,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"BookID\": 1,\r\n    \"QuantityInStock\": 7\r\n    \r\n}",
+							"raw": "{\r\n    \"BookID\": 3,\r\n    \"QuantityInStock\": 4\r\n    \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
