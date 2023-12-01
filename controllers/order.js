@@ -58,4 +58,33 @@ const placeAnOrder = async (req, res) => {
   }
 };
 
+//Getting list of orders
+const getOrders = async (req, res) => {
+  try {
+      const orders = await OrderData.find();
+
+      res.status(200).json(orders);
+  } catch (error) {
+      res.status(404).json({ message: error.message });
+  }
+};
+
+//Getting order by userID
+const getOrderByUserId = async (req, res) => {
+  try {
+      const UserID = req.params.UserID;
+      const orderData = await OrderData.find({ UserID });
+      if (orderData) {
+          res.status(200).json(orderData);
+      } else {
+          res.status(404).json({ message: 'Order not found' });
+      }
+  } catch (error) {
+      res.status(500).json({ message: error.message });
+  }
+};
+
+
 module.exports.placeAnOrder = placeAnOrder;
+module.exports.getOrders = getOrders;
+module.exports.getOrderByUserId = getOrderByUserId;

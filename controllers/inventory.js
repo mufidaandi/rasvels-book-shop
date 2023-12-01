@@ -31,6 +31,21 @@ const getInventory = async (req, res) => {
   }
 };
 
+//Getting invetory by ID
+const getInventoryById = async (req, res) => {
+  try {
+      const InventoryID = req.params.InventoryID;
+      const inventory = await InventoryData.findOne({ InventoryID });
+      if (inventory) {
+          res.status(200).json(inventory);
+      } else {
+          res.status(404).json({ message: 'Inventory not found' });
+      }
+  } catch (error) {
+      res.status(500).json({ message: error.message });
+  }
+};
+
 // Update inventory
 const updateInventory = async (req, res) => {
   const { BookID, QuantityInStock } = req.body;
@@ -54,4 +69,5 @@ const updateInventory = async (req, res) => {
 
 module.exports.addInventory = addInventory;
 module.exports.getInventory = getInventory;
+module.exports.getInventoryById = getInventoryById;
 module.exports.updateInventory = updateInventory;
