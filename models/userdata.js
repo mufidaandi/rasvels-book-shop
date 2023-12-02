@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 const userSchema = mongoose.Schema({
   UserID: {
@@ -39,10 +40,20 @@ const userSchema = mongoose.Schema({
   },
   Role: {
     type: String,
+    enum: ['user', 'admin'],
+    default: 'user',
     required: true,
     maxlength: 10
   }
 });
+
+userSchema.methods.comparePassword = async function(candidatePassword) {
+  try {
+    return await bcrypt.compare(candidatePassword, this.Password);
+  } catch (err) {
+    throw err;
+  }
+};
 
 const UserData = mongoose.model('UserData', userSchema);
 
