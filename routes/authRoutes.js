@@ -10,6 +10,9 @@ router.get('/register', authController.showRegistrationForm);
 // Handle user registration
 router.post('/register', authController.registerUser);
 
+// Log out
+router.get('/logout', authController.logout);
+
 
 // Admin login page
 router.get('/adminLogin', authController.showLogin);
