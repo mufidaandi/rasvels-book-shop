@@ -20,7 +20,6 @@ const userSchema = mongoose.Schema({
   },
   LastName: {
     type: String,
-    required: true,
     maxlength: 100,
   },
   Email: {
@@ -35,7 +34,6 @@ const userSchema = mongoose.Schema({
   },
   Address: {
     type: String,
-    required: true,
     maxlength: 100,
   },
   Role: {
