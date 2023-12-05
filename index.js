@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
 const path = require('path');
 const adminRoutes = require('./routes/adminRoutes'); // Import admin routes
 const authRoutes = require('./routes/authRoutes'); // Import auth routes
@@ -45,6 +44,8 @@ app.get('/home', (req, res) => {
 // Serve static files from the "public" directory 
 app.use('/auth', express.static(path.join(__dirname, 'public')));
 app.use('/admin', express.static(path.join(__dirname, 'public')));
+app.use('/admin/books/add', express.static(path.join(__dirname, 'public')));
+app.use('/admin/books/edit', express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 

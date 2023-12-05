@@ -1,0 +1,35 @@
+<h1>Add New Book</h1>
+
+  <!-- Form to add a new book -->
+  <form action="/admin/books/add" method="post">
+
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" required>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" required></textarea>
+
+    <label for="releaseDate">Release Date:</label>
+    <input type="date" id="releaseDate" name="releaseDate">
+
+    <label for="author">Author:</label>
+    <input type="text" id="author" name="author" required>
+
+    <label for="genre">Genre:</label>
+    <input type="text" id="genre" name="genre" required>
+
+    <label for="image">Image URL:</label>
+    <input type="text" id="image" name="image" required>
+
+    <label for="price">Price:</label>
+    <input type="number" id="price" name="price" step="0.01" required>
+
+    <label for="rating">Rating:</label>
+    <input type="number" id="rating" name="rating" step="0.1" required>
+
+    <!-- Add any additional fields as needed -->
+
+    <button type="submit">Add Book</button>
+  </form>
+
+  <!-- Add any additional content or scripts here -->
