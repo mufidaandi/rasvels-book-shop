@@ -45,44 +45,58 @@ authController.processLogin = (req, res, next) => {
 };
 
 authController.showRegistrationForm = (req, res) => {
-  res.render('register', { title: 'User Registration' });
+  res.render('register', { title: 'User Registration', errorMessage:'' });
 };
 
 authController.registerUser = async (req, res) => {
   try {
-    const { UserName, Password, UserID, FirstName, LastName, Email, Address } = req.body;
+    if(req.isAuthenticated){
+      res.redirect('/home');
+    }
+    const { userid, username, firstname, lastname, email, password, confirmPassword, address } = req.body;
     const role = 'user';
     // Hash the password
-    if (!Password) {
+    if (!password) {
       return res.status(400).send('Password is required.');
     }
     // Check if the username is already taken
-    const existingUser = await UserData.findOne({ UserName: UserName });
+    const existingUser = await UserData.findOne({ UserName: username });
     if (existingUser) {
       return res.render('register', { title: 'User Registration', errorMessage: 'Username is already taken.' });
     }
-
+    // Check if the username is already taken
+    const existingUser2 = await UserData.findOne({ UserID: userid });
+    if (existingUser2) {
+      return res.render('register', { title: 'User Registration', errorMessage: 'UserID is already taken.' });
+    }
+    // Check if the password and confirmPassword match
+    if (password !== confirmPassword) {
+      return res.render('register', {
+        title: 'User Registration',
+        errorMessage: 'Password and Confirm Password do not match.'
+      });
+    }
     // Hash the password
-    const hashedPassword = await bcrypt.hash(Password, 10);
+    const hashedPassword = await bcrypt.hash(password, 10);
 
     // Create a new user
     const newUser = new UserData({
-      UserName: UserName,
+      UserName: username,
       Password: hashedPassword,
       Role: role,
-      UserID: UserID,
-      FirstName: FirstName,
-      LastName: LastName,
-      Email: Email,
-      Address: Address
+      UserID: userid,
+      FirstName: firstname,
+      LastName: lastname,
+      Email: email,
+      Address: address
       // Add other user fields as needed
     });
 
     // Save the user to the database
     await newUser.save();
 
-    // Redirect to login page after successful registration
-    res.redirect('/adminLogin');
+    // Redirect to registration success page after successful registration
+    res.render('register-success', { title: 'Registration Successful' });
   } catch (error) {
     console.error(error);
     res.status(500).send('Internal Server Error');
