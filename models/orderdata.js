@@ -1,16 +1,10 @@
 const mongoose = require('mongoose');
 
 const orderSchema = mongoose.Schema({
-  OrderID: {
-    type: Number,
+  User: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'UserData',
     required: true,
-    unique: true,
-    index: true,
-  },
-  UserID: {
-    type: Number,
-    required: true,
-    maxlength: 10,
   },
   OrderDate: {
     type: Date,

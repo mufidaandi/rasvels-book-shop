@@ -7,8 +7,9 @@ const inventorySchema = mongoose.Schema({
     unique: true,
     index: true,
   },
-  BookID: {
-    type: Number,
+  Book: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'BookData',
     required: true,
   },
   QuantityInStock: {

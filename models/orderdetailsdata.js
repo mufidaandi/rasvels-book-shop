@@ -1,20 +1,14 @@
 const mongoose = require('mongoose');
 
 const orderDetailsSchema = mongoose.Schema({
-  OrderDetailID: {
-    type: Number,
+  Order: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'OrderData',
     required: true,
-    unique: true,
-    index: true,
-    maxlength: 10,
   },
-  OrderID: {
-    type: Number,
-    required: true,
-    maxlength: 10,
-  },
-  BookID: {
-    type: Number,
+  Book: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'BookData',
     required: true,
   },
   Quantity: {
