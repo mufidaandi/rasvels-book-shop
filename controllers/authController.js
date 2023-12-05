@@ -50,11 +50,9 @@ authController.showRegistrationForm = (req, res) => {
 
 authController.registerUser = async (req, res) => {
   try {
-    console.log(req.isAuthenticated);
     if(req.isAuthenticated()){
       return res.redirect('/home');
     }
-    console.log('hehe');
     const { userid, username, firstname, lastname, email, password, confirmPassword, address } = req.body;
     const role = 'user';
     // Hash the password
