@@ -5,3 +5,12 @@
     width: 100%;
     align-items: center;
 }
+.table-container {
+    margin: 20px auto 20px;
+    background-color: #F6F3F0;
+    border-radius: 10px;
+    display: block;
+    padding: 5px;
+
+}
+

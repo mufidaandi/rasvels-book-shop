@@ -9,9 +9,11 @@ bookController.getAllBooks = async (req, res) => {
     const books = await BookData.find();
     res.render('admin-layout', {
         title: 'Book Management',
+        account: 'welcome',
         content: 'admin-book-management',
         books: books,
-        isAuthenticated: req.isAuthenticated()
+        isAuthenticated: req.isAuthenticated(),
+        username: req.user.UserName// Assuming you have a user object with username
     });
   } catch (error) {
     console.error(error);
@@ -23,8 +25,10 @@ bookController.getAllBooks = async (req, res) => {
 bookController.getAddBookForm = (req, res) => {
     res.render('admin-layout', {
         title: 'Book Management - Add new',
+        account: 'welcome',
         content: 'admin-book-add',
-        isAuthenticated: req.isAuthenticated()
+        isAuthenticated: req.isAuthenticated(),
+        username: req.user.UserName// Assuming you have a user object with username
     });
 };
 
@@ -63,9 +67,11 @@ bookController.getEditBookForm = async (req, res) => {
     const book = await BookData.findById(req.params.id);
     res.render('admin-layout', {
         title: 'Book Management - Edit',
+        account: 'welcome',
         content: 'admin-book-edit',
         book: book,
-        isAuthenticated: req.isAuthenticated()
+        isAuthenticated: req.isAuthenticated(),
+        username: req.user.UserName// Assuming you have a user object with username
     });
   } catch (error) {
     console.error(error);

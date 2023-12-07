@@ -5,9 +5,10 @@ const BookData = require('../models/bookdata');
 adminController.dashboard = (req, res) => {
   res.render('admin-layout', {
     title: 'Admin Dashboard',
+    account: 'welcome',
     content: 'admin-dashboard',
     isAuthenticated: req.isAuthenticated(),
-    username: req.user.username // Assuming you have a user object with username
+    username: req.user.UserName// Assuming you have a user object with username
   });
 };
 
@@ -24,8 +25,10 @@ adminController.dashboard = (req, res) => {
 adminController.inventoryManagement = (req, res) => {
   res.render('admin-layout', {
     title: 'Inventory Management',
+    account: 'welcome',
     content: 'admin-inventory-management',
-    isAuthenticated: req.isAuthenticated()
+    isAuthenticated: req.isAuthenticated(),
+    username: req.user.UserName
   });
 };
 

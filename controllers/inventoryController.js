@@ -10,9 +10,11 @@ inventoryController.getAllInventoryItems = async (req, res) => {
     const inventoryItems = await InventoryData.find().populate('Book');
     res.render('admin-layout', {
         title: 'Inventory Management',
+        account: 'welcome',
         content: 'admin-inventory-management',
         inventory: inventoryItems,
-        isAuthenticated: req.isAuthenticated()
+        isAuthenticated: req.isAuthenticated(),
+        username: req.user.UserName// Assuming you have a user object with username
     });
   } catch (error) {
     console.error(error);
@@ -26,9 +28,11 @@ inventoryController.getAddStockForm = async (req, res) => {
     const books = await BookData.find();
     res.render('admin-layout', {
       title: 'Inventory Management - Add Stock',
+      account: 'welcome',
       content: 'admin-inventory-add',
       books: books,
-      isAuthenticated: req.isAuthenticated()
+      isAuthenticated: req.isAuthenticated(),
+      username: req.user.UserName// Assuming you have a user object with username
     });
   } catch (error) {
     console.error(error);
@@ -75,10 +79,12 @@ inventoryController.getEditInventoryForm = async (req, res) => {
     const books = await BookData.find();
     res.render('admin-layout', {
       title: 'Inventory Management - Edit Stock',
+      account: 'welcome',
       content: 'admin-inventory-edit',
       inventoryItem: inventoryItem,
       books: books,
-      isAuthenticated: req.isAuthenticated()
+      isAuthenticated: req.isAuthenticated(),
+      username: req.user.UserName// Assuming you have a user object with username
     });
   } catch (error) {
     console.error(error);

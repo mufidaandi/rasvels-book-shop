@@ -16,7 +16,6 @@ router.get('/books/add', authMiddleware.isAdmin, bookController.getAddBookForm);
 // Handle adding a new book
 router.post('/books/add', authMiddleware.isAdmin, bookController.addBook);
 
-router.get('/books/add', authMiddleware.isAdmin, bookController.addBook);
 // Display form to edit a book
 router.get('/books/edit/:id', authMiddleware.isAdmin, bookController.getEditBookForm);
 // Handle editing a book

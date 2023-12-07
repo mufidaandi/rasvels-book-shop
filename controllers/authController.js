@@ -9,7 +9,7 @@ const authController = {};
 authController.showLogin = (req, res) => {
   res.render('admin-layout', {
     title: 'Admin Login',
-    content: 'admin-login',
+    account: 'admin-login',
     isAuthenticated: req.isAuthenticated(),
     errorMessage: null
   });
