@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>RASVEL's Online Book Shop</title>
     <link rel="icon" href="images/favicon.ico" />
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/footer.css" />
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/about.css" />
+    <link rel="stylesheet" href="css/main.css" />   
+    <link rel="stylesheet" href="css/home.css" /> 
+    <link rel="stylesheet" href="css/admin.css" /> 
+    <link rel="stylesheet" href="css/vendor/ecicons.min.css" />   
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arapey:wght@400;700&display=swap">
+
     <script src="js/vendor/jquery-3.5.1.min.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/home.js"></script>
     <script src="js/products.js"></script>
     <script src="js/users.js"></script>
-    <script src="js/nav.js"></script>    
     <script src="https://kit.fontawesome.com/735452579a.js" crossorigin="anonymous"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
   </head>
   <body id="body">
     <!-- header contains logo, navigation, popups on hover -->
@@ -24,28 +30,71 @@
         <a href="/home"><img src="./images/logo.png" /></a>
       </div>
       <nav class="nav-container">
-        <a href="/admin/dashboard">Admin Dashboard</a>
+        <a href="/admin/dashboard">Dashboard</a>
         <a href="/admin/books">Book Management</a>
         <a href="/admin/inventory-management">Inventory Management</a>
       </nav>
-
-      <div class="account-wrapper">
-        <% if (isAuthenticated) { %>
-          <p>Welcome admin!</p> 
-          <a href="/auth/logout">Log out</a>
-          <% } else { %>
-          <p>Please login!</p>  
-        <% } %>
+      <div id="search-wrapper" class="search-wrapper">
+        <form class="search-bar">
+          <input type="text" 
+            onfocus="this.placeholder = 'Looking for something?'" 
+            onblur="this.placeholder = ''" 
+            id="search-input" 
+            class="search-input" 
+            placeholder="Looking for something?" />
+          <span id="search" class="search-icon"><i class="fa-solid fa-magnifying-glass fa-md" style="color: #442B1D;"></i></span for="search">
+        </form>
       </div>
-      
-      <div id="cart-wrapper" class="cart-wrapper">
-        
+      <div class="account-wrapper">
+        <div id="myaccount-wrapper" class="myaccount-wrapper">
+          <button id="myaccount" class="myaccount">
+            <a href="#">
+              <i class="fa-solid fa-user fa-xl" style="color: #442B1D;"></i>
+            </a>
+          </button>
+        </div>
+        <div id="myaccount-modal" class="myaccount-modal">
+          <div class="account-signin">
+            <h5>Sign In</h5>
+            <div class="form-container">
+              <label for="uname">Username/Email:</label>
+              <input id="uname" type="text" name="uname"/>
+              <label for="pword">Password:</label>
+              <input id="pword" type="password" name="pword"/>
+              <a href="./forgotPassword.html">
+                <label for="forgot-pword" class="forgot-pword">
+                  Forgot Password?
+                </label>
+              </a>
+              <div class="btn-container">
+                <button id="login-btn" type="submit" onclick="login()">Login</button>
+              </div>
+              <a href="./registration.html">
+                <label for="register" class="register">
+                  Create Account
+                </label>
+              </a>
+            </div>
+          </div>
+          <div class="account-profile">
+            <h5>Welcome!</h5>
+            <div class="form-container">
+              <a href="./user-profile.html">
+                <label for="profile" class="profile">
+                  User Profile
+                </label>
+              </a>
+              <div class="btn-container">
+                <button id="logout-btn" type="submit" onclick="logout()">Log out</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
     <!-- page content starts here -->
     <main id="content-wrapper" class="content-wrapper">
-        <!-- Placeholder for the main content -->
-        <%- include(content) %>
+      <%- include(content) %>
     </main>
     <!-- footer contains page info and social media links -->
     <footer class="footer-wrapper">

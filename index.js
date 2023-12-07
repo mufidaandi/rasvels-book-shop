@@ -46,6 +46,8 @@ app.use('/auth', express.static(path.join(__dirname, 'public')));
 app.use('/admin', express.static(path.join(__dirname, 'public')));
 app.use('/admin/books/add', express.static(path.join(__dirname, 'public')));
 app.use('/admin/books/edit', express.static(path.join(__dirname, 'public')));
+app.use('/admin/inventory/add', express.static(path.join(__dirname, 'public')));
+app.use('/admin/inventory/edit', express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 

@@ -1,0 +1,21 @@
+<!-- admin-inventory-add.ejs -->
+<h1>Edit Stock for Existing Book</h1>
+
+<!-- Form to add stock for an existing book -->
+<form action="/admin/inventory/edit/<%= inventoryItem._id %>" method="post">
+
+    <label for="bookID">Book Title:</label>
+    <span><%= inventoryItem.Book.Title %></span>
+    <input type="hidden" id="bookID" name="bookID" value="<%= inventoryItem.Book._id %>">
+    <br>
+
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" name="quantity" value="<%= inventoryItem.QuantityInStock %>">
+    <br>
+
+    <!-- Add any additional fields as needed -->
+
+    <button type="submit">Update Stock</button>
+</form>
+
+<!-- Add any additional content or scripts here -->
