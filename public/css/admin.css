@@ -1,0 +1,7 @@
+/* Product list container */
+#content-wrapper {
+    display: grid;
+    gap: 0rem;
+    width: 100%;
+    align-items: center;
+}

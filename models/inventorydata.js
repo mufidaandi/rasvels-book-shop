@@ -1,13 +1,7 @@
 const mongoose = require('mongoose');
 
 const inventorySchema = mongoose.Schema({
-  InventoryID: {
-    type: Number,
-    required: true,
-    unique: true,
-    index: true,
-  },
-  Book: {
+ Book: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'BookData',
     required: true,
