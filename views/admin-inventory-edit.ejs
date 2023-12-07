@@ -1,21 +1,41 @@
-<!-- admin-inventory-add.ejs -->
-<h1>Edit Stock for Existing Book</h1>
+<main class="content-wrapper">
+    <div class="add-form-container">
+        <h2>Edit Stock for Existing Book</h2>
 
-<!-- Form to add stock for an existing book -->
-<form action="/admin/inventory/edit/<%= inventoryItem._id %>" method="post">
+        <!-- Form to edit stock for an existing book -->
+        <form action="/admin/inventory/edit/<%= inventoryItem._id %>" method="post">
 
-    <label for="bookID">Book Title:</label>
-    <span><%= inventoryItem.Book.Title %></span>
-    <input type="hidden" id="bookID" name="bookID" value="<%= inventoryItem.Book._id %>">
-    <br>
+            <div class="row">
+                <div class="column">
+                    <label for="bookID">Book Title *</label>
+                    <select id="bookID" name="bookID" required>
+                        <option value="<%= inventoryItem.Book._id %>">
+                            <%= inventoryItem.Book.Title %>
+                        </option>
+                    </select>
+                </div>
+            </div>
 
-    <label for="quantity">Quantity:</label>
-    <input type="number" id="quantity" name="quantity" value="<%= inventoryItem.QuantityInStock %>">
-    <br>
+            <div class="row">
+                <div class="column">
+                    <label for="quantity">Quantity *</label>
+                    <input type="number" id="quantity" name="quantity" value="<%= inventoryItem.QuantityInStock %>"
+                        required>
+                </div>
+            </div>
+            <!-- Add any additional fields as needed -->
 
-    <!-- Add any additional fields as needed -->
+            <div class="row">
+                <div class="right">
+                    <div class="submit-btn-container">
+                        <button type="submit" id="submit-btn">Update Stock</button>
+                    </div>
+                    <div class="cancel-btn-container">
+                        <button type="submit" id="cancel-btn">Cancel</button>
+                    </div>
 
-    <button type="submit">Update Stock</button>
-</form>
-
-<!-- Add any additional content or scripts here -->
+                </div>
+            </div>
+        </form>
+    </div>
+</main>
