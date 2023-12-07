@@ -1,65 +1,49 @@
 <head>
-    <style>
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
+  <script>
+    function confirmDelete(inventoryId) {
+      const isConfirmed = confirm('Are you sure you want to delete this inventory?');
+      if (isConfirmed) {
+        window.location.href = '/admin/inventory/delete/' + inventoryId;
       }
-  
-      th, td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: left;
-      }
-  
-      th {
-        background-color: #f2f2f2;
-      }
-
-      .delete-link {
-      color: red;
-      cursor: pointer;
     }
-    </style>
-    <script>
-      function confirmDelete(inventoryId) {
-        const isConfirmed = confirm('Are you sure you want to delete this inventory?');
-        if (isConfirmed) {
-          window.location.href = '/admin/inventory/delete/' + inventoryId;
-        }
-      }
-    </script>
-  </head>
+  </script>
+</head>
 
-<h1>Inventory Management</h1>
+<main class="content-wrapper" id="content-wrapper">
+  <div class="table-container">
+    <h1>Inventory Management</h1>
 
-  <!-- Link to add a new inventor -->
-  <a href="/admin/inventory/add">Add Inventory</a>
+    <!-- Link to add a new inventor -->
+    <a href="/admin/inventory/add" class="add-button">Add Inventory</a>
 
-  <!-- Display the list of books with stock in a table -->
-  <table>
-    <thead>
-      <tr>
-        <th>Book</th>
-        <th>Quantity In Stock</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% inventory.forEach(inventoryItem => { %>
+    <!-- Display the list of books with stock in a table -->
+    <table>
+      <thead>
         <tr>
-          <td><strong><%= inventoryItem.Book.Title %></strong></td>
-          <td><%= inventoryItem.QuantityInStock %></td>
-          <td>
-            <!-- Link to edit an inventory -->
-            <a href="/admin/inventory/edit/<%= inventoryItem._id %>">Edit</a>
-
-            <!-- Link to delete an inventory -->
-            <a class="delete-link" onclick="confirmDelete('<%= inventoryItem._id %>')">Delete</a>
-          </td>
+          <th>Book</th>
+          <th>Quantity In Stock</th>
+          <th>Actions</th>
         </tr>
-      <% }) %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% inventory.forEach(inventoryItem=> { %>
+          <tr>
+            <td><strong>
+                <%= inventoryItem.Book.Title %>
+              </strong></td>
+            <td>
+              <%= inventoryItem.QuantityInStock %>
+            </td>
+            <td>
+              <!-- Link to edit an inventory -->
+              <a href="/admin/inventory/edit/<%= inventoryItem._id %>">Edit</a>
 
-  <!-- Add any additional content or scripts here -->
+              <!-- Link to delete an inventory -->
+              <a class="delete-link" onclick="confirmDelete('<%= inventoryItem._id %>')">Delete</a>
+            </td>
+          </tr>
+          <% }) %>
+      </tbody>
+    </table>
+  </div>
+</main>

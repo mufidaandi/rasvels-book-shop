@@ -1,30 +1,7 @@
 <head>
-  <style>
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-
-    th,
-    td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align: left;
-    }
-
-    th {
-      background-color: #f2f2f2;
-    }
-
-    .delete-link {
-      color: red;
-      cursor: pointer;
-    }
-  </style>
   <script>
-    function confirmDelete(bookId) {
-      const isConfirmed = confirm('Are you sure you want to delete this book?');
+    function confirmDelete(bookId, bookTitle) {
+      const isConfirmed = confirm(`Are you sure you want to delete "${bookTitle}"?`);
       if (isConfirmed) {
         window.location.href = '/admin/books/delete/' + bookId;
       }
@@ -37,7 +14,7 @@
     <h1>Book Management</h1>
 
     <!-- Link to add a new book -->
-    <a href="/admin/books/add">Add New Book</a>
+    <a href="/admin/books/add" class="add-button">Add New Book</a>
 
     <!-- Display the list of books in a table -->
     <table>
@@ -55,29 +32,17 @@
       <tbody>
         <% books.forEach(book=> { %>
           <tr>
-            <td><strong>
-                <%= book.Title %>
-              </strong></td>
-            <td>
-              <%= book.Author %>
-            </td>
-            <td>
-              <%= book.Description %>
-            </td>
-            <td>
-              <%= book.Genre %>
-            </td>
-            <td>$<%= book.Price %>
-            </td>
-            <td>
-              <%= book.Rating %>
-            </td>
-            <td>
+            <td><strong><%= book.Title %></strong></td>
+            <td><%= book.Author %></td>
+            <td><%= book.Description %></td>
+            <td><%= book.Genre %></td>
+            <td>$<%= book.Price %></td>
+            <td><%= book.Rating %></td>
+            <td class="actions-container">
               <!-- Link to edit a book -->
               <a href="/admin/books/edit/<%= book._id %>">Edit</a>
-
               <!-- Link to delete a book -->
-              <a class="delete-link" onclick="confirmDelete('<%= book._id %>')">Delete</a>
+              <a class="delete-link" onclick="confirmDelete('<%= book._id %>', '<%= book.Title %>')">Delete</a>
             </td>
           </tr>
           <% }) %>
@@ -85,9 +50,5 @@
     </table>
   </div>
 </main>
-
-
-
-
 
 <!-- Add any additional content or scripts here -->
