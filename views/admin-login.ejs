@@ -1,14 +1,22 @@
-<!-- Add your admin login form here -->
-<form action="/auth/adminLogin" method="post">
+<div class="account-signin">
+  <h5>Sign In</h5>
+  <form action="/auth/adminLogin" method="post">
     <label for="username">Username:</label>
     <input type="text" id="username" name="username" required>
     <br>
     <label for="password">Password:</label>
     <input type="password" id="password" name="password" required>
-    <br>
-    <button type="submit">Login</button>
-  </form>
-  <!-- Display error message if authentication fails -->
-<% if (errorMessage) { %>
-  <p style="color: red;"><%= errorMessage %></p>
-<% } %>
+    
+    <a href="./forgotPassword.html">
+      <label for="forgot-pword" class="forgot-pword">
+        Forgot Password?
+      </label>
+    </a>
+    <div class="btn-container">
+      <button id="login-btn" type="submit">Login</button>
+    </div>
+
+    <a href="./registration.html">
+      <label for="register" class="register"> Create Account </label>
+    </a>
+</div>
