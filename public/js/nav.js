@@ -13,10 +13,12 @@ var expandSearch = function () {
 
 var showModal = function () {
   $("#myaccount-modal").css("display", "flex");
+  $("#account-profile").css("display", "flex");
 };
 
 var hideModal = function () {
   $("#myaccount-modal").css("display", "none");
+  $("#account-profile").css("display", "none");
 };
 
 function hideBackground() {

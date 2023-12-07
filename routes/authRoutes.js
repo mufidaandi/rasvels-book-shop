@@ -19,6 +19,8 @@ router.get('/adminLogin', authController.showLogin);
 router.post('/adminLogin', authController.processLogin);
 
 // User login page
+router.get('/user', authController.showUserLogin);
+router.post('/userLogin', authController.processUserLogin);
 
 
 

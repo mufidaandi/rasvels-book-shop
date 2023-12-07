@@ -1,0 +1,24 @@
+<div class="account-signin">
+  <h5>Sign In</h5>
+  <form action="/auth/userLogin" method="post">
+    <div class="form-container">
+      <label for="uname">Username/Email:</label>
+      <input id="uname" type="text" name="username" />
+      <label for="pword">Password:</label>
+      <input id="pword" type="password" name="password" />
+
+      <a href="./forgotPassword.html">
+        <label for="forgot-pword" class="forgot-pword">
+          Forgot Password?
+        </label>
+      </a>
+      <div class="btn-container">
+        <button id="login-btn" type="submit">Login</button>
+      </div>
+
+      <a href="./registration.html">
+        <label for="register" class="register"> Create Account </label>
+      </a>
+    </div>
+  </form>
+</div>

@@ -5,6 +5,7 @@ const session = require('express-session');
 const passport = require('passport');
 const path = require('path');
 const adminRoutes = require('./routes/adminRoutes'); // Import admin routes
+const userRoutes = require('./routes/userRoutes'); // Import admin routes
 const authRoutes = require('./routes/authRoutes'); // Import auth routes
 
 
@@ -30,14 +31,6 @@ app.use(express.urlencoded({ extended: true }));
 const router= require("./routes/route");
 app.use('/',router);
 
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
-});
-
-app.get('/home', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
-});
-
 
 // -----------------------------------------admin things-----------------------------------------
 // Set the views directory to where your HTML files are located
@@ -59,6 +52,7 @@ app.use(passport.session());
 
 // Use the admin routes
 app.use('/admin', adminRoutes);
+app.use('/user', userRoutes);
 app.use('/auth', authRoutes);
 // -----------------------------------------end admin things-----------------------------------------
 

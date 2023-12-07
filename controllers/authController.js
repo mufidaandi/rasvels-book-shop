@@ -15,6 +15,16 @@ authController.showLogin = (req, res) => {
   });
 };
 
+// Show user login page
+authController.showUserLogin = (req, res) => {
+  res.render('main-layout', {
+    title: 'Home',
+    content: 'sign-in',
+    isAuthenticated: req.isAuthenticated(),
+    errorMessage: null
+  });
+};
+
 authController.processLogin = (req, res, next) => {
   passport.authenticate('admin', (err, user, info) => {
     if (err) {
@@ -22,7 +32,7 @@ authController.processLogin = (req, res, next) => {
       return res.status(500).send('Internal Server Error');
     }
     if (!user) {
-      console.log('Authentication failed. Redirecting to login.');
+      console.log('Authentication failed. Redirecting to login. ' );
       return res.render('admin-layout', {
         title: 'Admin Login',
         content: 'admin-login',
@@ -44,6 +54,38 @@ authController.processLogin = (req, res, next) => {
   })(req, res, next);
 };
 
+authController.processUserLogin = (req, res, next) => {
+  passport.authenticate('user', (err, user, info) => {
+
+    if (err) {
+      console.error(err);
+      return res.status(500).send('Internal Server Error');
+    }
+
+    if (!user) {
+      console.log('Authentication failed. Redirecting to login.');
+
+      return res.render('main-layout', {
+        title: 'User Login',
+        content: 'sign-in',
+        isAuthenticated: req.isAuthenticated(),
+        errorMessage: 'Incorrect username or password.'
+      });
+    }
+
+    req.login(user, (err) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).send('Internal Server Error');
+      }
+
+      console.log('User successfully logged in:', user);
+      // Redirect to the user dashboard upon successful login
+      return res.redirect('/user/home');
+    });
+  })(req, res, next);
+};
+
 authController.showRegistrationForm = (req, res) => {
   res.render('register', { title: 'User Registration', errorMessage:'' });
 };
@@ -55,7 +97,7 @@ authController.registerUser = async (req, res) => {
     }
     const { userid, username, firstname, lastname, email, password, confirmPassword, address } = req.body;
     const role = 'user';
-    // Hash the password
+    // Check if the password is entered
     if (!password) {
       return res.status(400).send('Password is required.');
     }
@@ -94,7 +136,6 @@ authController.registerUser = async (req, res) => {
 
     // Save the user to the database
     await newUser.save();
-
     // Redirect to registration success page after successful registration
     return res.render('register-success', { title: 'Registration Successful' });
   } catch (error) {
