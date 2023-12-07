@@ -3,17 +3,27 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('../models/userdata');
 
-passport.use('user', new LocalStrategy((username, password, done) => {
-  console.log(username);
-  console.log(passport);
-  User.findOne({ UserName: username, Role: 'user' }, (err, user) => {
-    if (err) return done(err);
-    if (!user) return done(null, false, { message: 'Incorrect username or password.' });
-    if (user.Password !== password) return done(null, false, { message: 'Incorrect username or password.' });
+passport.use('user', new LocalStrategy(async (username, password, done) => {
+  try {
+    const user = await User.findOne({ UserName: username, Role: 'user' });
+    if (!user) {
+      console.log('User not found. Authentication failed.');
+      return done(null, false, { message: 'Incorrect username or password.' });
+    }
+
+    const passwordMatch = await user.comparePassword(password);
+
+    if (!passwordMatch) {
+      return done(null, false, { message: 'Incorrect username or password.' });
+    }
 
     return done(null, user);
-  });
+  } catch (err) {
+    console.error('Error during authentication:', err);
+    return done(err);
+  }
 }));
+
 
 passport.use('admin', new LocalStrategy(async (username, password, done) => {
   try {

@@ -39,25 +39,6 @@ function addImageHoverHandlers(imageId) {
   $(imageId).on("mouseleave", () => reduceAnimation(imageId));
 }
 
-function featuredBook() {
-  const bookId = '1';
-  fetch(`/getBookById/${bookId}`)
-    .then((response) => response.json())
-    .then((book) => {
-      const ratingStars = getRatingStars(book.Rating);
-      document.getElementById('book-cover').innerHTML = `<a href="product-detail.html?bookId=${bookId}"><img src="${book.Image}" alt="Book Cover"></a>`;
-      document.getElementById('book-details').innerHTML = `
-      <a href="product-detail.html?bookId=${bookId}"><p class="book-title">${book.Title}</p></a>
-        <p class="book-descrip">${book.Description}</p>
-        <p>by ${book.Author}</p>
-        <p><b>$${book.Price.toFixed(2)}</b></p>
-        <p>${ratingStars}</p>
-        <button class="button addToCart">ADD TO CART</button>
-      `;
-    })
-    .catch((error) => console.error('Error fetching book:', error));
-}
-
 function topSellers(){
   fetch('/getBooks')
   .then(response => response.json())
@@ -69,7 +50,7 @@ function topSellers(){
       topBooks.forEach(book => {
           const bookDiv = document.createElement('div');
           bookDiv.innerHTML = `
-              <a href="product-detail.html?bookId=${book.BookID}"><img src="${book.Image}" alt="Book Cover">
+              <a href="product-detail.html?bookId=${book.BookID}"><img src="/${book.Image}" alt="Book Cover">
               <p class="book-title">${book.Title}</p></a>
               <p>by ${book.Author}</p>
               <button class="button addToCart">ADD TO CART</button>
@@ -109,7 +90,5 @@ $(document).ready(function () {
   addImageHoverHandlers("#fantasy-image");
   addImageHoverHandlers("#romance-image");
 
-  // topRatedProducts();
-  featuredBook();
   topSellers();
 });

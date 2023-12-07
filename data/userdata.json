@@ -1,20 +1,9 @@
-[{
-    "UserID": 1,
-    "UserName": "admin",
-    "FirstName": "Admin",
-    "LastName": "AA",
-    "Email": "admin@example.com",
-    "Password": "password",
-    "Address": "123 Main Street, Cityville",
-    "Role": "Admin"
-},
-{
-    "UserID": 1,
-    "UserName": "john_doe",
-    "FirstName": "John",
-    "LastName": "Doe",
-    "Email": "john.doe@example.com",
-    "Password": "hashedpassword123",
-    "Address": "123 Main Street, Cityville",
-    "Role": "Guest"
+[{  "UserID": 1,
+"UserName": "admin",
+"FirstName": "Admin",
+"LastName": "AA",
+"Email": "admin@example.com",
+"Password": "$2b$10$PjJFhFfRi8QePRR1Okj0MeD6/ZqJq.jKUfQcaJKjWbCfmpq1PxHh6",
+"Address": "123 Main Street, Cityville",
+"Role": "admin"
 }]
