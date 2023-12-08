@@ -107,7 +107,7 @@ function userLogout(){
 
 function checkLogin(){
     storedUser = userGetCurrentLoginUser();
-    if(storedUser){
+    if(storedUser && storedUser.firstname !== undefined){
         $(".account-profile h5").text('Welcome, '+ storedUser.firstname + '!');
         $(".account-profile").show();
     } else {
