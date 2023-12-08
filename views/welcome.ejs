@@ -1,6 +1,7 @@
 <% if (username) { %>
+  <!-- Code for the logged-in user -->
   <div class="account-profile">
-    <h5>Welcome!</h5>
+    <h5>Welcome, <%= username %>!</h5>
     <div class="form-container">
       <a href="./user-profile.html">
         <label for="profile" class="profile">
@@ -10,60 +11,63 @@
       <div class="btn-container">
         <button id="logout-btn" type="submit" onclick="logout()">Log out</button>
       </div>
-      
     </div>
   </div>
-  <% } else { %>
-<div class="account-signin">
-  <h5>Sign In</h5>
-  <div class="form-container">
-    <label for="uname">Username/Email:</label>
-    <input id="uname" type="text" name="uname"/>
-    <label for="pword">Password:</label>
-    <input id="pword" type="password" name="pword"/>
-    
-    <a href="./forgotPassword.html">
-      <label for="forgot-pword" class="forgot-pword">
-        Forgot Password?
-      </label>
-    </a>
-    <div class="btn-container">
-      <button id="login-btn" type="submit" onclick="login()">Login</button>
+<% } else { %>
+  <!-- Code for the login form -->
+  <div class="account-signin">
+    <h5>Sign In</h5>
+    <div class="form-container">
+      <label for="uname">Username/Email:</label>
+      <input id="uname" type="text" name="uname" />
+      <label for="pword">Password:</label>
+      <input id="pword" type="password" name="pword" />
+
+      <a href="./forgotPassword.html">
+        <label for="forgot-pword" class="forgot-pword">
+          Forgot Password?
+        </label>
+      </a>
+      <div class="btn-container">
+        <button id="login-btn" type="submit" onclick="login()">Login</button>
+      </div>
+
+      <a href="./registration.html">
+        <label for="register" class="register">
+          Create Account
+        </label>
+      </a>
     </div>
-    
-    <a href="./registration.html">
-      <label for="register" class="register">
-        Create Account
-      </label>
-    </a>
   </div>
-</div>
-<script>
-  function login() {
-    // Get the values of username and password
-    const username = document.getElementById('uname').value;
-    const password = document.getElementById('pword').value;
+  <script>
+    function login() {
+      // Get the values of username and password
+      const username = document.getElementById('uname').value;
+      const password = document.getElementById('pword').value;
 
-    // Make a fetch request to the '/userLogin' route
-    fetch('/auth/userLogin', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ username, password }),
-    })
-    .then(response => response.json())
-    .then(data => {
-      // Handle the response data (if needed)
-      window.location.href = '/home';
-      console.log(data);
-    })
-    .catch(error => {
-      // Handle errors
-      console.error('Error during login:', error);
-      console.error('Login failed:', data.errorMessage);
-    });
-  }
-</script>
+      // Determine the login route based on the context (user or admin)
+      const loginRoute = username.includes('@admin') ? '/auth/adminLogin' : '/auth/userLogin';
 
+      // Make a fetch request to the determined login route
+      fetch(loginRoute, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Handle the response data (if needed)
+          const redirectUrl = data.role === 'admin' ? '/admin/dashboard' : '/home';
+          window.location.href = redirectUrl;
+          console.log(data);
+        })
+        .catch(error => {
+          // Handle errors
+          console.error('Error during login:', error);
+          console.error('Login failed:', data.errorMessage);
+        });
+    }
+  </script>
 <% } %>
