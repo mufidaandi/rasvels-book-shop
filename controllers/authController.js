@@ -10,6 +10,7 @@ authController.showLogin = (req, res) => {
   res.render('admin-layout', {
     title: 'Admin Login',
     account: 'admin-login',
+    dashboard: 'admin-dashboard',
     isAuthenticated: req.isAuthenticated(),
     errorMessage: null
   });
