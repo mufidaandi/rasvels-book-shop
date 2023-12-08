@@ -1,6 +1,54 @@
-<!-- admin-dashboard.ejs -->
-<div class="dashboard-container">
-  <h1>Welcome to the Admin Dashboard</h1>
-  <p>This is the admin dashboard content.</p>
-  <!-- Add more content as needed -->
-</div>
+<!-- ... (your existing HTML code) ... -->
+
+<main class="content-wrapper" id="content-wrapper">
+  <% if (isAuthenticated) { %>
+    <div class="table-container">
+      <h1 class="welcome-message">Welcome <%= username %>!</h1>
+
+      <!-- General Overview Section -->
+      <section class="overview-section">
+        <h1 class="management-heading"><strong>Book Management:</strong> Seamlessly add, update, and remove books to
+          ensure the vitality of your inventory.</h1>
+        <p class="management-description">As the administrator, you have the capability to:</p>
+        <ul class="management-list">
+          <li><strong>Add Books:</strong> Expand your bookstore's collection by effortlessly adding new titles with
+            detailed information, including title, author, genre, and pricing.</li>
+          <li><strong>Update Books:</strong> Keep your catalog current and accurate by modifying existing book details
+            such as prices, genres, or cover images.</li>
+          <li><strong>Remove Books:</strong> Maintain a curated collection by easily removing outdated or discontinued
+            books from your inventory.</li>
+        </ul>
+      </section>
+
+      <!-- Inventory Management Section -->
+      <section class="overview-section">
+        <h1 class="management-heading"><strong>Inventory Management:</strong> Exercise control by adding, updating, and
+          removing stocks to uphold precise stock levels.</h1>
+        <p class="management-description">As the administrator, your inventory management responsibilities include:</p>
+        <ul class="management-list">
+          <li><strong>Add Stocks:</strong> Ensure optimal stock levels by adding new inventory for popular items or
+            restocking bestselling books.</li>
+          <li><strong>Update Stocks:</strong> Keep your inventory accurate by adjusting stock quantities in response to
+            sales, returns, or new acquisitions.</li>
+          <li><strong>Remove Stocks:</strong> Manage inventory efficiently by removing stocks for items that are no
+            longer available or have become obsolete.</li>
+        </ul>
+      </section>
+
+    </div>
+    <% } else { %>
+      <!-- Display a "Please sign in" message when User is not logged in -->
+      <div class="restrict-container">
+        <p class="restrict-icon" style="text-align: center;">
+          <i class="fa-solid fa-ban fa-10x" style="color: #FF6347;"></i>
+        </p>
+        <p class="restrict-message">
+          Access to this content is restricted. Please log in to view the requested content.
+        </p>
+        <!-- You can add a sign-in link or any other relevant content here -->
+      </div>
+      <!-- You can add a sign-in link or any other relevant content here -->
+      <% } %>
+</main>
+
+<!-- ... (the rest of your HTML code) ... -->

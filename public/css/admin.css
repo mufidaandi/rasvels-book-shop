@@ -196,3 +196,34 @@ select {
     float: right;
     position: relative;
 }
+.overview-section{
+    padding: 20px;
+}
+.management-heading{
+   text-align: left;
+   color: #444444;
+   padding-bottom: 10px;
+   padding-top: 10px;
+}
+ul{
+    color: gray;
+    padding-top: 10px;
+}
+li{
+    padding-bottom: 10px;
+}
+.restrict-message{
+    font-size: 30px;
+    text-align: center;
+    color: #555;
+}
+.restrict-icon{
+    text-align: center;
+}
+.restrict-container{
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    height: 70vh;
+}
