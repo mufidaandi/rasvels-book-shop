@@ -17,12 +17,12 @@
   <body id="body">
     <header>
       <div class="logo">
-        <a href="/home"><img src="/images/logo.png" /></a>
+        <a href="/user/home"><img src="/images/logo.png" /></a>
       </div>
       <nav class="nav-container">
-        <a href="./books-list.html" id="books" class="nav-items books">Books</a>
-        <a class="nav-items" href="./about.html">About Us</a>
-        <a class="nav-items" href="./contact.html">Contact Us</a>
+        <a href="/books-list.html" id="books" class="nav-items books">Books</a>
+        <a class="nav-items" href="/about.html">About Us</a>
+        <a class="nav-items" href="/contact.html">Contact Us</a>
       </nav>
       <div id="search-wrapper" class="search-wrapper">
         <form class="search-bar">
@@ -46,32 +46,32 @@
         <div id="myaccount-modal" class="myaccount-modal">
           <div class="account-signin">
             <h5>Sign In</h5>
-            <div class="form-container">
-              <label for="uname">Username/Email:</label>
-              <input id="uname" type="text" name="uname"/>
-              <label for="pword">Password:</label>
-              <input id="pword" type="password" name="pword"/>
-              
-              <a href="./forgotPassword.html">
-                <label for="forgot-pword" class="forgot-pword">
-                  Forgot Password?
-                </label>
-              </a>
-              <div class="btn-container">
-                <button id="login-btn" type="submit" onclick="login()">Login</button>
-              </div>
-              
-              <a href="./registration.html">
-                <label for="register" class="register">
-                  Create Account
-                </label>
-              </a>
-            </div>
+              <form action="/auth/userLogin" method="post">
+    <div class="form-container">
+      <label for="uname">Username/Email:</label>
+      <input id="uname" type="text" name="username" />
+      <label for="pword">Password:</label>
+      <input id="pword" type="password" name="password" />
+
+      <a href="/forgotPassword.html">
+        <label for="forgot-pword" class="forgot-pword">
+          Forgot Password?
+        </label>
+      </a>
+      <div class="btn-container">
+        <button id="login-btn" type="submit">Login</button>
+      </div>
+
+      <a href="register">
+        <label for="register" class="register"> Create Account </label>
+      </a>
+    </div>
+  </form>
           </div>
           <div class="account-profile">
             <h5>Welcome!</h5>
             <div class="form-container">
-              <a href="./user-profile.html">
+              <a href="/user-profile.html">
                 <label for="profile" class="profile">
                   User Profile
                 </label>
@@ -87,7 +87,7 @@
       
       <div id="cart-wrapper" class="cart-wrapper">
         <button class="cart">
-          <a href="./shoppingcart.html">
+          <a href="/shoppingcart.html">
             <i id="cart-icon" class="fa-solid fa-cart-shopping fa-xl" style="color: #442B1D;"></i>
           </a>
         </button>
@@ -174,7 +174,7 @@
               <label for="password-login">Password <span class="error passwordErrorMessage">*</span></label>
               <input id="password-login" type="password" name="password-login"/>
               
-              <a href="#">
+              <a href="/forgotPassword.html">
                 <label for="forgot-pword" class="forgot-pword">
                   Forgot Password?
                 </label>
@@ -184,7 +184,7 @@
                 <button id="login-btn" type="button" onclick="loginForm()">Login</button>
               </div>
               <br>
-              <a href="./registration.html">
+              <a href="register">
                 <label for="register" class="register">
                   Create Account
                 </label>
@@ -206,7 +206,6 @@
 
     <script src="js/vendor/jquery-3.5.1.min.js"></script>
     <script src="js/nav.js"></script>
-    <script src="js/products.js"></script>
     <script src="js/login.js"></script>
     <script src="js/registration.js"></script>
   </body>

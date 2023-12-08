@@ -3,12 +3,22 @@
 const userController = {};
 
 userController.dashboard = (req, res) => {
-  res.render('main-layout', {
-    title: 'Home',
-    content: 'welcome',
-    isAuthenticated: req.isAuthenticated(),
-    username: req.user.UserName // Assuming you have a user object with username
-  });
+  if (req.isAuthenticated()) {
+    res.render("main-layout", {
+      title: "Home",
+      content: "welcome",
+      isAuthenticated: req.isAuthenticated(),
+      username: req.user.UserName,
+      isAdmin: false,
+    });
+  } else {
+    res.render("main-layout", {
+      title: "Home",
+      content: "sign-in",
+      isAuthenticated: req.isAuthenticated(),
+      isAdmin: false,
+    });
+  }
 };
 
 module.exports = userController;

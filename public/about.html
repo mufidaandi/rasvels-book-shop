@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap">
     <script src="js/vendor/jquery-3.5.1.min.js"></script>
-    <script src="js/products.js"></script>
     <script src="js/users.js"></script>
     <script src="js/nav.js"></script>    
     <script src="https://kit.fontawesome.com/735452579a.js" crossorigin="anonymous"></script>
@@ -21,12 +20,12 @@
     <!-- header contains logo, navigation, popups on hover -->
     <header>
       <div class="logo">
-        <a href="/home"><img src="/images/logo.png" /></a>
+        <a href="/user/home"><img src="/images/logo.png" /></a>
       </div>
       <nav class="nav-container">
-        <a href="./books-list.html" id="books" class="nav-items books">Books</a>
-        <a class="nav-items" href="./about.html">About Us</a>
-        <a class="nav-items" href="./contact.html">Contact Us</a>
+        <a href="/books-list.html" id="books" class="nav-items books">Books</a>
+        <a class="nav-items" href="/about.html">About Us</a>
+        <a class="nav-items" href="/contact.html">Contact Us</a>
       </nav>
       <div id="search-wrapper" class="search-wrapper">
         <form class="search-bar">
@@ -50,32 +49,32 @@
         <div id="myaccount-modal" class="myaccount-modal">
           <div class="account-signin">
             <h5>Sign In</h5>
-            <div class="form-container">
-              <label for="uname">Username/Email:</label>
-              <input id="uname" type="text" name="uname"/>
-              <label for="pword">Password:</label>
-              <input id="pword" type="password" name="pword"/>
-              
-              <a href="./forgotPassword.html">
-                <label for="forgot-pword" class="forgot-pword">
-                  Forgot Password?
-                </label>
-              </a>
-              <div class="btn-container">
-                <button id="login-btn" type="submit" onclick="login()">Login</button>
-              </div>
-              
-              <a href="./registration.html">
-                <label for="register" class="register">
-                  Create Account
-                </label>
-              </a>
-            </div>
+              <form action="/auth/userLogin" method="post">
+    <div class="form-container">
+      <label for="uname">Username/Email:</label>
+      <input id="uname" type="text" name="username" />
+      <label for="pword">Password:</label>
+      <input id="pword" type="password" name="password" />
+
+      <a href="/forgotPassword.html">
+        <label for="forgot-pword" class="forgot-pword">
+          Forgot Password?
+        </label>
+      </a>
+      <div class="btn-container">
+        <button id="login-btn" type="submit">Login</button>
+      </div>
+
+      <a href="register">
+        <label for="register" class="register"> Create Account </label>
+      </a>
+    </div>
+  </form>
           </div>
           <div class="account-profile">
             <h5>Welcome!</h5>
             <div class="form-container">
-              <a href="./user-profile.html">
+              <a href="/user-profile.html">
                 <label for="profile" class="profile">
                   User Profile
                 </label>
@@ -91,7 +90,7 @@
       
       <div id="cart-wrapper" class="cart-wrapper">
         <button class="cart">
-          <a href="./shoppingcart.html">
+          <a href="/shoppingcart.html">
             <i id="cart-icon" class="fa-solid fa-cart-shopping fa-xl" style="color: #442B1D;"></i>
           </a>
         </button>
@@ -110,33 +109,50 @@
           <h3>Our Company</h3>
           <hr>
           <br>
-          <br>
-          <p class="about-us-content">
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            At RASVEL's Pet Store, we're passionate about pets and we know that they're more than just animals; they're family. 
-            That's why we strive to provide you with everything you need to care for your furry friend in one convenient location. 
-            From premium pet food and delicious treats to the latest toys and accessories, we've got you covered.<br><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            Our team of experienced pet lovers is always on hand to provide expert advice and answer any questions you may have about pet care. 
-            Whether you're a new pet owner or a seasoned pro, we're here to support you on your journey.
-          </p>
+          <section class="about-us-content">
+            <p>
+                At RASVEL's Bookstore, we're passionate about books because we believe in the power of stories to inspire, educate, and entertain.
+                Books are more than just words on pages; they open up new worlds, spark imaginations, and become treasured companions.
+            </p>
+    
+            <p>
+                Explore our extensive collection that covers a diverse range of genres, from timeless classics to the latest bestsellers.
+                Whether you're an avid reader seeking the next great novel or a student in search of educational resources, we have something for everyone.
+            </p>
+    
+            <p>
+                Our knowledgeable team of book enthusiasts is here to assist you. If you need recommendations, insights, or help finding the perfect book for any occasion,
+                we're dedicated to making your reading experience enjoyable and fulfilling.
+            </p>
+    
+            <p>
+                Thank you for choosing RASVEL's Bookstore, where every book is a journey waiting to be explored.
+            </p>
+          </section>
         </div>
       </div>
       <div class="row">
         <div class="column content">
-          <h3>Your One-Stop Shop for Pet Care</h3>
+          <h3>Your One-Stop Shop for Book Lovers</h3>
           <hr>
           <br>
           <br>
-          <p class="about-us-content">
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            We believe in offering only the best products for your pets, which is why we carefully curate our selection to ensure that everything we stock meets our high standards. 
-            We're constantly searching for new and innovative products that will enhance your pet's quality of life.
-            <br><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            So whether you're shopping for your furry friend or just browsing, we invite you to come and experience the RASVEL's Pet Store difference. 
-            We're confident that you'll love our products and our friendly, knowledgeable staff.
-          </p>
+          <section class="about-us-content">
+            <p>
+                We believe in offering only the best books for our readers, and that's why we carefully curate our selection to ensure that every book we feature meets our high standards.
+                Whether you're searching for timeless classics, the latest bestsellers, or educational reads, we have something for every book lover.
+            </p>
+    
+            <p>
+                Our team is dedicated to providing a welcoming and knowledgeable environment for all readers.
+                Whether you're looking for a specific title or seeking recommendations, we're here to make your book shopping experience enjoyable and fulfilling.
+            </p>
+    
+            <p>
+                So whether you're a book enthusiast or just exploring the world of literature, we invite you to come and experience the RASVEL's Bookstore difference.
+                We're confident that you'll find your next great read among our carefully curated collection.
+            </p>
+          </section>
         </div>
         
         <div class="column">
@@ -146,12 +162,13 @@
 
       <div class="row row-bottom">
         <div class="bottom-content">
-          <h3>Your Trusted Pet Supply Store.</h3>
+          <h3>Your Trusted Book Store.</h3>
           <hr>
-          <p class="bottom-content">
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            At RASVEL's, our only passion is your pet's wellbeing.
+          <section class="bottom-content">
+            <p>
+                At RASVEL's Bookstore, our only passion is to bring the joy of reading into your life.
             </p>
+          </section>
         </div>
         
       </div>

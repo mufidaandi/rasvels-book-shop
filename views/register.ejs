@@ -1,44 +1,127 @@
 <!-- register.ejs -->
+<main id="content-wrapper" class="content-wrapper">
+  <div class="container">
+    <div class="registration-banner">
+      <img src="images/be a member.png" alt="">
+    </div>
+    <div class="register-form-container">
+      <form action="/auth/register" method="post" id="register">
+        <h1>Create Account</h1><br>
 
-<h2>User Registration</h2>
+        <div class="row">
+          <div class="column">
+            <label for="username">Username <span class="error usernameErrorMessage">*</span></label>
+            <input type="text" name="UserName" id="username">
+          </div>
+        </div>
 
-<form action="/auth/register" method="post">
-  <label for="userid">Userid:</label>
-  <input type="text" id="userid" name="userid" required>
-  <br>
+        <div class="row">
+          <div class="column">
+            <label for="firstName">First Name <span class="error firstNameErrorMessage">*</span></label>
+            <input type="text" name="FirstName" id="firstName">
+          </div>
+        </div>
 
-  <label for="username">Username:</label>
-  <input type="text" id="username" name="username" required>
-  <br>
+        <div class="row">
+          <div class="column">
+            <label for="lastName">Last Name <span class="error lastNameErrorMessage">*</span></label>
+            <input type="text" name="LastName" id="lastName">
+          </div>
+        </div>
 
-  <label for="firstname">First Name:</label>
-  <input type="text" id="firstname" name="firstname" required>
-  <br>
+        <div class="row">
+          <div class="column">
+            <label for="address">Address <span class="error addressErrorMessage">*</span></label>
+            <input type="text" name="Address" id="address">
+          </div>
+        </div>
 
-  <label for="lastname">Last Name:</label>
-  <input type="text" id="lastname" name="lastname">
-  <br>
+        <div class="row">
+          <div class="column">
+            <label for="email">Email Address <span class="error emailErrorMessage">*</span></label>
+            <input type="email" name="Email" id="email">
+          </div>
+        </div>
 
-  <label for="email">Email:</label>
-  <input type="email" id="email" name="email" required>
-  <br>
+        <div class="row">
+          <div class="column">
+            <label for="password">Password <span class="error passwordErrorMessage">*</span></label>
+            <input type="password" name="Password" id="password">
+          </div>
+        </div>
+         
+        <div class="row">
+          <div class="column">
+            <label for="confirm-password">Confirm Your Password <span class="error confirmPasswordErrorMessage">*</span></label>
+            <input type="password" name="confirmPassword" id="confirmPassword">
+          </div>
+        </div>
 
-  <label for="password">Password:</label>
-  <input type="password" id="password" name="password" required>
-  <br>
+        <div class="row">
+          <div class="column">
+            <br>
+            <div class="submit-btn-container">
+              <button type="submit" id="submit-btn">Submit</button>
+            </div>
 
-  <label for="confirmPassword">Confirm Password:</label>
-  <input type="password" id="confirmPassword" name="confirmPassword" required>
-  <br>
+          <br><br>
+          <span>Already have an account? <span id="showLogin" onclick="showLogin()"><u>Log in</u></span></span>
+          </div>
+            
+        </div>
+      </form>
+      
+      <div id="login">
+        <% if (!isAuthenticated) { %>
+          <h1>Log In</h1>
+          <form action="/auth/userLogin" method="post">
+            <div class="login-form-container">
+              <label for="username-login">Username <span class="error usernameErrorMessage">*</span></label>
+              <input id="username-login" type="text" name="username"/>
+              <label for="password-login">Password <span class="error passwordErrorMessage">*</span></label>
+              <input id="password-login" type="password" name="password"/>
+              
+              <a href="/forgotPassword.html">
+                <label for="forgot-pword" class="forgot-pword">
+                  Forgot Password?
+                </label>
+              </a>
+              <br>
+              <div class="btn-container">
+                <button id="login-btn" type="submit">Login</button>
+              </div>
+              <br>
+              <a href="register">
+                <label for="register" class="register">
+                  Create Account
+                </label>
+              </a>
+            </div>
 
-  <label for="address">Address:</label>
-  <input type="text" id="address" name="address">
-  <br>
+          </form>
+          
+        <% } else { %>  
+          <h1>You are already logged in.</h1>
+          <a href='/user/home'><h3><u>Go to Home</u></h3></a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</main>
 
-  <button type="submit">Register</button>
-</form>
+<script>
 
-<!-- Display error message if registration fails -->
-<% if (errorMessage) { %>
-  <p style="color: red;"><%= errorMessage %></p>
-<% } %>
+  function showLogin() {
+    $("#login").show();
+    $("#register").hide();
+  }
+
+  function hideLogin() {
+    $("#login").hide();
+    $("#register").show();
+  }
+
+  $(document).ready(function () {
+    hideLogin();
+  });
+</script>

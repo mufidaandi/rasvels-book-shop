@@ -14,7 +14,8 @@ inventoryController.getAllInventoryItems = async (req, res) => {
         content: 'admin-inventory-management',
         inventory: inventoryItems,
         isAuthenticated: req.isAuthenticated(),
-        username: req.user.UserName// Assuming you have a user object with username
+        username: req.user.UserName,
+        isAdmin: true
     });
   } catch (error) {
     console.error(error);

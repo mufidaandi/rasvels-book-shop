@@ -15,8 +15,6 @@
     <script src="/js/vendor/jquery-3.5.1.min.js"></script>
     <script src="/js/nav.js"></script>
     <script src="/js/home.js"></script>
-    <script src="/js/products.js"></script>
-    <!-- <script src="/js/users.js"></script> -->
     <script src="https://kit.fontawesome.com/735452579a.js" crossorigin="anonymous"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -26,12 +24,12 @@
     <!-- header contains logo, navigation, popups on hover -->
     <header>
       <div class="logo">
-        <a href="/home"><img src="/images/logo.png" /></a>
+        <a href="/user/home"><img src="/images/logo.png" /></a>
       </div>
       <nav class="nav-container">
-        <a href="./books-list.html" id="books" class="nav-items books">Books</a>
-        <a class="nav-items" href="./about.html">About Us</a>
-        <a class="nav-items" href="./contact.html">Contact Us</a>
+        <a href="/books-list.html" id="books" class="nav-items books">Books</a>
+        <a class="nav-items" href="/about.html">About Us</a>
+        <a class="nav-items" href="/contact.html">Contact Us</a>
       </nav>
       <div id="search-wrapper" class="search-wrapper">
         <form class="search-bar">
@@ -61,7 +59,7 @@
       
       <div id="cart-wrapper" class="cart-wrapper">
         <button class="cart">
-          <a href="./shoppingcart.html">
+          <a href="/shoppingcart.html">
             <i id="cart-icon" class="fa-solid fa-cart-shopping fa-xl" style="color: #442B1D;"></i>
           </a>
         </button>
@@ -95,27 +93,19 @@
 
       <div class="categories-container">
         <div class="displays">
-        <a href="books-list.html?genre=topseller" class="display">
-          <img id="topseller-image" src="/images/1.png">
-          <span class="display-text">Top Sellers</span>
-        </a>
-        <a href="books-list.html?genre=new" class="display">
-          <img id="newrelease-image" src="/images/2.png">
-          <span class="display-text">New Releases</span>
-        </a>
-        <a href="books-list.html?genre=mystery" class="display">
+        <a href="/books-list.html?genre=mystery" class="display">
           <img id="mystery-image" src="/images/4.png">
           <span class="display-text">Mystery</span>
         </a>
-        <a href="books-list.html?genre=thriller" class="display">
+        <a href="/books-list.html?genre=thriller" class="display">
           <img id="horror-image" src="/images/5.png">
           <span class="display-text">Thriller</span>
         </a>
-        <a href="books-list.html?genre=historical" class="display">
+        <a href="/books-list.html?genre=historical" class="display">
           <img id="historical-image"  src="/images/6.png">
           <span class="display-text">Historical</span>
         </a>
-        <a href="books-list.html?genre=romance" class="display">
+        <a href="/books-list.html?genre=romance" class="display">
           <img id="romance-image"  src="/images/7.png">
           <span class="display-text">Romance</span>
         </a>

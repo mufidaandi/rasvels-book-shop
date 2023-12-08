@@ -12,6 +12,7 @@ router.post('/register', authController.registerUser);
 
 // Log out
 router.get('/logout', authController.logout);
+router.get('/userLogout', authController.userLogout);
 
 
 // Admin login page
@@ -20,6 +21,7 @@ router.post('/adminLogin', authController.processLogin);
 
 // User login page
 router.get('/user', authController.showUserLogin);
+router.get('/userLogin', authController.checkUserLogin);
 router.post('/userLogin', authController.processUserLogin);
 
 

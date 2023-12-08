@@ -67,14 +67,18 @@ function displayBooks(endpoint) {
   fetch(endpoint)
     .then((response) => response.json())
     .then((books) => {
-      console.log("endpoint " + endpoint);
+      if (books.length === 0) {
+        const noBooksMessage = $("<p>No books found.</p>");
+        productList.append(noBooksMessage);
+      } else {
       books.forEach((book) => {
         // Create a div for the book card
         const bookCard = $('<div class="product-card"></div>');
 
         // Create a div for the book details
         const bookLinkStart = $("<a>");
-        bookLinkStart.attr("href", "product-detail.html?bookId=" + book.BookID);
+        bookLinkStart.attr("href", "/product-detail.html?bookId=" + book._id);
+
 
         // Create an image element for the book cover
         const bookCover = $("<img>");
@@ -159,6 +163,7 @@ function displayBooks(endpoint) {
         bookLinkStart.append(bookCard);
         productList.append(bookLinkStart);
       });
+    }
     })
     .catch((error) => console.error("Error fetching books:", error));
 }
