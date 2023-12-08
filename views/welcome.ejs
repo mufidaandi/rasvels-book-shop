@@ -42,7 +42,7 @@
         <button id="login-btn" type="submit" onclick="login()">Login</button>
       </div>
 
-      <a href="./registration.html">
+      <a href="/auth/register">
         <label for="register" class="register">
           Create Account
         </label>
@@ -68,17 +68,22 @@
       })
         .then(response => response.json())
         .then(data => {
-          // Handle the response data (if needed)
+        if (data.success) {
+          // Handle successful login
           alert("Login successful");
           user_data = {
-              "username": username,
-              "name": username
+            "username": username,
+            "name": username
           }
           localStorage.setItem("currentUser", JSON.stringify(user_data));
           const redirectUrl = data.role === 'admin' ? '/admin/dashboard' : '/home';
           window.location.href = redirectUrl;
           console.log(data);
-        })
+        } else {
+          // Display login failed alert
+          alert("Login failed. Incorrect username or password.");
+        }
+      })
         .catch(error => {
           // Handle errors
           console.error('Error during login:', error);

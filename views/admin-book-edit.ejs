@@ -15,7 +15,7 @@
       <div class="row">
         <div class="column">
           <label for="releaseDate">Release Date</label>
-          <input type="date" id="releaseDate" name="releaseDate" class="input1" value="<%= book.ReleaseDate %>">
+          <input type="date" id="releaseDate" name="releaseDate" class="input1" value="<%= book.ReleaseDate.toISOString().split('T')[0] %>">
         </div>
       </div>
       <div class="row">
@@ -62,7 +62,7 @@
             <button type="submit" id="submit-btn">Update Book</button>
           </div>
           <div class="cancel-btn-container">
-            <button type="submit" id="cancel-btn">Cancel</button>
+            <button type="button" id="cancel-btn">Cancel</button>
         </div>
         </div>
       </div>
