@@ -110,10 +110,8 @@ function checkLogin(){
     if(storedUser){
         $(".account-profile h5").text('Welcome, '+ storedUser.firstname + '!');
         $(".account-profile").show();
-        $(".account-signin").hide();
     } else {
         $(".account-profile").hide();
-        $(".account-signin").show();
     }
 }
 
@@ -123,8 +121,6 @@ function login(){
     var user = userLogin(usr, pwd);
     if(user != null){
         $(".account-profile h5").text('Welcome, '+ user.firstname + '!');
-        $(".account-profile").show();
-        $(".account-signin").hide();
         $('#uname').val('');
         $('#pword').val('');
         $("#loginError").val('');
@@ -142,8 +138,6 @@ function loginForm(){
     var user = userLogin(usr, pwd);
     if(user != null){
         $(".account-profile h5").text('Welcome, '+ user.name);
-        $(".account-profile").show();
-        $(".account-signin").hide();
         $('#username-login').val('');
         $('#password-login').val('');
         $("#loginError").val('');

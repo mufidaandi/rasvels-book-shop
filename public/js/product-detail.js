@@ -34,6 +34,13 @@ function getBookById(bookId) {
     .then((data) => data);
 }
 
+// Function to fetch inventory details by Book ID
+function getInventoryByBookId(bookId) {
+  return fetch(`/getInventoryById/${bookId}`)
+    .then((response) => response.json())
+    .then((data) => data);
+}
+
 // Function to add a book to the cart
 function addBookToCart(book) {
   // Replace this with your actual API endpoint or cart handling logic
@@ -88,17 +95,33 @@ jQuery(document).ready(function () {
   });
 });
 
-function addToCart() {
-  getBookById(bookId).then(function (book) {
-    console.log(book);
-    book.Image
-    var item = {};
-    item.id = bookId;
-    item.name = jQuery("#product-name").text();
-    item.price = jQuery("#product-price").text().substring(1);
-    item.quantity = Number(jQuery("#product-quantity-selected").val());
-    item.image = book.Image;
-    addItemToCart(item);
-  });
-  
+async function addToCart() {
+  const customerQty = document.getElementById('product-quantity-selected').value;
+  console.log('customerQty: ', customerQty);
+
+  try {
+    const book = await getBookById(bookId);
+
+    // Assuming getInventoryByBookId is a function that returns the inventory quantity
+    const inventory = await getInventoryByBookId(bookId);
+
+    if (inventory && inventory.QuantityInStock >= customerQty) {
+      // Sufficient stocks, proceed to add to cart
+      var item = {
+        id: bookId,
+        name: jQuery("#product-name").text(),
+        price: jQuery("#product-price").text().substring(1),
+        quantity: Number(jQuery("#product-quantity-selected").val()),
+        image: book.Image
+      };
+      addItemToCart(item);
+    } else {
+      // Insufficient stocks, show alert
+      alert('Insufficient stocks. Available stocks: ' + (inventory ? inventory.QuantityInStock : 0));
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    // Handle the error appropriately
+  }
 }
+
