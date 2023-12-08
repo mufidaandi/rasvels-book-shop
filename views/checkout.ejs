@@ -1,0 +1,167 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="css/checkout.css">
+    <script src="js/users.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/checkout.js"></script>
+  </head>
+<div class="checkout-container">
+    <div class="container">
+        <div class="row">
+            <div class="checkout-leftside col-lg-8 col-md-12 ">
+                <!-- checkout content Start -->
+                <div class="checkout-content">
+                    <div class="checkout-inner">
+                        <div class="checkout-wrap margin-bottom-30 padding-bottom-3">
+                            <div class="checkout-block check-bill">
+                                <h3 class="checkout-title">Billing Details</h3>
+                                <div class="bl-block-content">
+                                    <div class="check-bill-form">
+                                        <form id="myform" action="thankyou.html" method="post">
+                                            <span class="bill-wrap bill-half">
+                                                <label>First Name <span style="color: red;">*</span></label>
+                                                <input type="text" id="firstName" name="firstName"
+                                                    placeholder="Enter your first name" required />
+                                            </span>
+                                            <span class="bill-wrap bill-half">
+                                                <label>Last Name <span style="color: red;">*</span></label>
+                                                <input type="text" id="lastName" name="lastName"
+                                                    placeholder="Enter your last name" required />
+                                            </span>
+                                            <span class="bill-wrap">
+                                                <label>Address <span style="color: red;">*</span></label>
+                                                <input type="text" id="address" name="address"
+                                                    placeholder="Address Line 1" required/>
+                                            </span>
+                                            <span class="bill-wrap bill-half">
+                                              <label>Country</label>
+                                              <span class="bl-select-inner">
+                                                 <select id="country" name="country" class="bill-select"></select>
+                                                  
+                                              </span>
+                                            </span>
+                                            
+                                            <span class="bill-wrap bill-half">
+                                                <label>Post Code</label>
+                                                <input type="text" id="postCode" name="postCode" placeholder="Post Code" />
+                                            </span>
+                                            
+                                            <span class="bill-wrap bill-half">
+                                                <label>Region State</label>
+                                                <span class="bl-select-inner">
+                                                    <select name="region" id="region" class="bill-select">
+                                                
+                                                    </select>
+                                                </span>
+                                            </span>
+                                            <span class="bill-wrap bill-half">
+                                              <label>City</label>
+                                              <span class="bl-select-inner">
+                                                  <select name="city" id="city"  class="bill-select">
+                                                     
+                                                  </select>
+                                              </span>
+                                          </span>
+                                            <span class="bill-wrap">
+
+                                                <span class="check-order-btn">
+                                                    <button class="btn btn-primary btn-checkout">
+                                                        Place Order
+                                                      </button>
+                                                </span>
+                                            </span>
+
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- <span class="check-order-btn">
+                            <a id="mysubmit" class="btn btn-primary">Place Order</a>
+                        </span> -->
+                    </div>
+                </div>
+                <!--cart content End -->
+            </div>
+
+            <!-- Sidebar Area Start -->
+            <div class="checkout-rightside col-lg-4 col-md-12">
+                <div class="sidebar-wrap">
+                    <!-- Sidebar Summary Block -->
+                    <div class="sidebar-block">
+                        <div class="sb-title">
+                            <h3 class="sidebar-title">Summary</h3>
+                        </div>
+                        <div class="sb-block-content">
+                            <div class="checkout-summary">
+                                <div>
+                                    <span class="text-left">Sub-Total</span>
+                                    <span class="text-right" id="subTotal"></span>
+                                </div>
+                                <div>
+                                    <span class="text-left">Delivery Charges</span>
+                                    <span class="text-right" id="deliverCHarges"></span>
+                                </div>
+                                <div class="checkout-summary-total">
+                                    <span class="text-left">Total Amount</span>
+                                    <span class="text-right" id="totalAmount"></span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Sidebar Summary Block -->
+                </div>
+                <div class="sidebar-wrap checkout-pay-wrap">
+                    <!-- Sidebar Payment Block -->
+                    <div class="sidebar-block">
+                        <div class="sb-title">
+                            <h3 class="sidebar-title">Payment Method</h3>
+                        </div>
+                        <div class="sb-block-content">
+                            <div class="checkout-pay">
+                                <div class="pay-desc">Please select the preferred payment method to use on
+                                    this
+                                    order.</div>
+                                <form action="#">
+                                    <span class="pay-option">
+                                        <ul style="list-style: none; padding-left: 0px;">
+                                            <li>
+                                                <span>
+                                                    <input type="radio" id="pay1" name="radio-group" checked value="1">
+                                                    <label for="pay1">Cash On Delivery</label>
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span>
+                                                    <input type="radio" id="pay2" name="radio-group" value="2">
+                                                    <label for="pay2">Paypal</label>
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span>
+                                                    <input type="radio" id="pay3" name="radio-group" value="3">
+                                                    <label for="pay3">Visa/Master Card</label>
+                                                </span>
+                                            </li>
+                                        </ul>
+
+
+
+                                    </span>
+                                    <span class="pay-commemt">
+                                        <span class="pay-opt-head">Add Comments About Your Order</span>
+                                        <textarea name="your-commemt" placeholder="Comments"></textarea>
+                                    </span>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sidebar Payment Block -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -69,6 +69,12 @@
         .then(response => response.json())
         .then(data => {
           // Handle the response data (if needed)
+          alert("Login successful");
+          user_data = {
+              "username": username,
+              "name": username
+          }
+          localStorage.setItem("currentUser", JSON.stringify(user_data));
           const redirectUrl = data.role === 'admin' ? '/admin/dashboard' : '/home';
           window.location.href = redirectUrl;
           console.log(data);

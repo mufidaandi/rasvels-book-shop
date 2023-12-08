@@ -35,7 +35,7 @@ function setCategories() {
     groupDiv.classList.add("categ-title");
 
     const groupLink = document.createElement("a");
-    groupLink.href = `books-list.html?genre=${categoryGroup.toLowerCase()}`;
+    groupLink.href = `book-list?genre=${categoryGroup.toLowerCase()}`;
     groupLink.textContent = categoryGroup;
     groupDiv.appendChild(groupLink);
 
@@ -48,7 +48,7 @@ function setCategories() {
     categorizedGenres[categoryGroup].forEach((genre) => {
       const listItem = document.createElement("li");
       const genreLink = document.createElement("a");
-      genreLink.href = `books-list.html?genre=${genre
+      genreLink.href = `book-list?genre=${genre
         .toLowerCase()
         .replace(/ /g, "_")}`;
       genreLink.textContent = genre;
@@ -77,7 +77,7 @@ function displayBooks(endpoint) {
 
         // Create a div for the book details
         const bookLinkStart = $("<a>");
-        bookLinkStart.attr("href", "/product-detail.html?bookId=" + book._id);
+        bookLinkStart.attr("href", "/product-detail?bookId=" + book._id);
 
 
         // Create an image element for the book cover

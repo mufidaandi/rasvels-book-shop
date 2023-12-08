@@ -81,7 +81,10 @@ citySelect.value = cityDefaultId;
 // Trigger the change event on the country select element to populate the region select element with the first country's regions
 countrySelect.dispatchEvent(new Event('change'));
 }
-generateSelects();
+$(document).ready(function () {
+    generateSelects();
+});
+
 function populateUserInfor(){
     var loggedUser = userGetCurrentLoginUser();
     $("#firstName").val(loggedUser.firstname);
