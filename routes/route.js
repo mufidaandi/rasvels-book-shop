@@ -25,6 +25,6 @@ router.get('/getOrderByUserId/:UserID', order.getOrderByUserId)
 
 router.post('/addInventory', inventory.addInventory);
 router.get('/getInventory', inventory.getInventory);
-router.get('/getInventoryById/:InventoryID', inventory.getInventoryById);
+router.get('/getInventoryById/:BookID', inventory.getInventoryById);
 router.put('/updateInventory', inventory.updateInventory);
 module.exports=router;

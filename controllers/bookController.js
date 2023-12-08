@@ -1,5 +1,6 @@
 // controllers/bookController.js
 const BookData = require('../models/bookdata');
+const InventoryData = require('../models/inventorydata');
 
 const bookController = {};
 
@@ -111,7 +112,21 @@ bookController.editBook = async (req, res) => {
 // Handle deleting a book
 bookController.deleteBook = async (req, res) => {
   try {
-    // Find the book by ID and delete it
+    // Find the book by ID
+    const book = await BookData.findById(req.params.id);
+
+    // Check if the book exists
+    if (!book) {
+      return res.status(404).send('Book not found');
+    }
+
+    // Find and delete the corresponding inventory entries using that book's ID
+    const deleteInventoryResult = await InventoryData.deleteMany({ Book: book._id });
+
+    // Log the result of the delete operation
+    console.log('Delete inventory result:', deleteInventoryResult);
+
+    // Delete the book
     await BookData.findByIdAndDelete(req.params.id);
 
     // Redirect to the list of books after deleting

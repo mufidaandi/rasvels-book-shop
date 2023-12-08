@@ -34,15 +34,25 @@ const getInventory = async (req, res) => {
 //Getting invetory by ID
 const getInventoryById = async (req, res) => {
   try {
-      const InventoryID = req.params._id;
-      const inventory = await InventoryData.findOne({ InventoryID });
-      if (inventory) {
-          res.status(200).json(inventory);
-      } else {
-          res.status(404).json({ message: 'Inventory not found' });
-      }
+    // Convert bookId to a valid ObjectId
+    console.log(req.params.BookID);
+    const bookId = req.params.BookID;
+    const objectId = new mongoose.Types.ObjectId(bookId);
+
+    console.log(bookId);
+    // Find the inventory with the given bookId
+    const inventory = await InventoryData.findOne({ Book: objectId });
+
+    if (inventory) {
+      console.log('Inventory found:', inventory);
+      return inventory;
+    } else {
+      console.log('Inventory not found for the specified book ID.');
+      return null;
+    }
   } catch (error) {
-      res.status(500).json({ message: error.message });
+    console.error('Error retrieving inventory:', error);
+    throw error;
   }
 };
 
