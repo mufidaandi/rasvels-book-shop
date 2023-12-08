@@ -36,7 +36,8 @@ authController.processLogin = (req, res, next) => {
       console.log('Authentication failed. Redirecting to login. ' );
       return res.render('admin-layout', {
         title: 'Admin Login',
-        content: 'admin-login',
+        account: 'admin-login',
+        dashboard: 'admin-dashboard',
         isAuthenticated: req.isAuthenticated(),
         errorMessage: 'Incorrect username or password.'  // Add an error message
       });
