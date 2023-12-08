@@ -1,0 +1,156 @@
+<head>
+    
+    <link rel="stylesheet" href="css/shoppingcartstyle.css" />
+    <script src="js/users.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/shoppingcart.js"></script>
+    
+
+  </head>
+<div class="cart-container">
+    <div class="container">
+      <div style="text-align: center">
+        <h2>Cart</h2>
+      </div>
+      <div class="row">
+        <div class="cart-leftside col-lg-8 col-md-12">
+          <!-- cart content Start -->
+          <div class="cart-content">
+            <div class="cart-inner">
+              <form id="cartForm" action="/checkout" method="get">
+                <div class="table-content cart-table-content">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th style="text-align: center">Quantity</th>
+                        <th>Total</th>
+                        <th>Remove</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="cart-update-bottom">
+                  <a href="/home" class="continue-shopping">
+                    Continue Shopping</a>
+                  <button class="btn btn-primary btn-checkout">
+                    Check Out
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!--cart content End -->
+        </div>
+        <!-- Sidebar Area Start -->
+        <div class="cart-rightside col-lg-4 col-md-12">
+          <div class="sidebar-wrap">
+            <!-- Sidebar Summary Block -->
+            <div class="sidebar-block">
+              <div class="sb-block-content">
+                <h4 class="ship-title">Estimate Shipping</h4>
+                <div class="cart-form">
+                  <p>Enter your destination to get a shipping estimate</p>
+                  <form action="#" method="post">
+                    <span class="cart-wrap">
+                      <label>Country <span style="color: red;">*</span></label>
+                      <span class="cart-select-inner">
+                        <select
+                          name="ec_cart_country"
+                          id="cart-select-country"
+                          class="cart-select"
+                        >
+                          <option selected="" disabled="">
+                            Canada
+                          </option>
+                          <option value="1">Australia</option>
+                          <option value="2">United States</option>
+                        </select>
+                      </span>
+                    </span>
+                    <span class="cart-wrap">
+                      <label>State/Province</label>
+                      <span class="cart-select-inner">
+                        <select
+                          name="ec_cart_state"
+                          id="cart-select-state"
+                          class="cart-select"
+                        >
+                          <option selected="" disabled="">
+                            Please Select a region, state
+                          </option>
+                          <option value="1">Ontario</option>
+                          <option value="2">New York</option>
+                          <option value="3">New South Wales</option>
+                          <option value="4">California</option>
+                        </select>
+                      </span>
+                    </span>
+                    <span class="cart-wrap">
+                      <label>Zip/Postal Code</label>
+                      <input
+                        type="text"
+                        name="postalcode"
+                        placeholder="Zip/Postal Code"
+                      />
+                    </span>
+                  </form>
+                </div>
+              </div>
+
+              <div class="sb-block-content">
+                <div class="cart-summary-bottom">
+                  <div class="cart-summary">
+                    <div>
+                      <span class="text-left">Sub-Total</span>
+                      <span class="text-right sub-total">$274.00</span>
+                    </div>
+                    <div>
+                      <span class="text-left">Delivery Charges</span>
+                      <span class="text-right">$9.99</span>
+                    </div>
+                    <div>
+                      <span class="text-left">Coupon Discount</span>
+                    </div>
+                    <div class="cart-coupon-content">
+                      <form
+                        class="cart-coupon-form"
+                        name="cart-coupon-form"
+                        method="post"
+                        action="#"
+                      >
+                        <input
+                          class="coupon"
+                          type="text"
+                          required=""
+                          placeholder="Enter Your coupon Code"
+                          name="coupon"
+                          value=""
+                        />
+                        <button
+                          class="coupon-btn button btn-primary"
+                          type="submit"
+                          name="subscribe"
+                          value=""
+                        >
+                          Apply
+                        </button>
+                      </form>
+                    </div>
+                    <div class="cart-summary-total">
+                      <span class="text-left">Total Amount</span>
+                      <span class="text-right total-amount">$300.00</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Sidebar Summary Block -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

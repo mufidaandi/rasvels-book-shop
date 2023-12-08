@@ -89,12 +89,16 @@ jQuery(document).ready(function () {
 });
 
 function addToCart() {
-  var userId = 1;
-  var item = {};
-  item.id = bookId;
-  item.name = jQuery("#product-name").text();
-  item.price = jQuery("#product-price").text().substring(1);
-  item.quantity = Number(jQuery("#product-quantity-selected").val());
-  item.image = "images/products/" + bookId + "_1.jpg";
-  addItemToCart(item);
+  getBookById(bookId).then(function (book) {
+    console.log(book);
+    book.Image
+    var item = {};
+    item.id = bookId;
+    item.name = jQuery("#product-name").text();
+    item.price = jQuery("#product-price").text().substring(1);
+    item.quantity = Number(jQuery("#product-quantity-selected").val());
+    item.image = book.Image;
+    addItemToCart(item);
+  });
+  
 }

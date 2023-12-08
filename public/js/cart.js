@@ -72,7 +72,7 @@ function addItemToCart(item) {
           const row = $('<tr></tr>');
           const colProduct = $('<td class="cart-pro-name"></td>');
           const colProductLink = $('<a>');
-          colProductLink.attr('href', "product-detail.html?productId=" + items[i].id );
+          colProductLink.attr('href', "product-detail?productId=" + items[i].id );
   
           // Product image and name
           const productImg = $('<img class="cart-pro-img mr-4">');
