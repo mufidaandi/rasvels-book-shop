@@ -89,27 +89,23 @@ authController.processUserLogin = (req, res, next) => {
       return res.status(500).send('Internal Server Error');
     }
 
-    if (!user) {
-      console.log('Authentication failed. Redirecting to login.');
+    // In authController.processUserLogin
+  if (!user) {
+    console.log('Authentication failed. Redirecting to login.');
+    return res.status(401).json({ success: false, errorMessage: 'Incorrect username or password.' });
+  }
 
-      return res.render('main-layout', {
-        title: 'User Login',
-        content: 'sign-in',
-        isAuthenticated: req.isAuthenticated(),
-        errorMessage: 'Incorrect username or password.'
-      });
+  req.login(user, (err) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ success: false, errorMessage: 'Internal Server Error' });
     }
 
-    req.login(user, (err) => {
-      if (err) {
-        console.error(err);
-        return res.status(500).send('Internal Server Error');
-      }
+    console.log('User successfully logged in:', user);
+    // Respond with a JSON object for successful login
+    return res.status(200).json({ success: true });
+  });
 
-      console.log('User successfully logged in:', user);
-      // Redirect to the user dashboard upon successful login
-      return res.redirect('/user/home');
-    });
   })(req, res, next);
 };
 

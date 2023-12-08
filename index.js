@@ -52,7 +52,7 @@ app.use(passport.session());
 
 // Use the admin routes
 app.use('/admin', adminRoutes);
-app.use('/user', userRoutes);
+app.use('/', userRoutes);
 app.use('/auth', authRoutes);
 // -----------------------------------------end admin things-----------------------------------------
 
