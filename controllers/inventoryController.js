@@ -33,7 +33,8 @@ inventoryController.getAddStockForm = async (req, res) => {
       content: 'admin-inventory-add',
       books: books,
       isAuthenticated: req.isAuthenticated(),
-      username: req.user.UserName// Assuming you have a user object with username
+      username: req.user.UserName,// Assuming you have a user object with username
+      isAdmin: true
     });
   } catch (error) {
     console.error(error);
@@ -85,7 +86,8 @@ inventoryController.getEditInventoryForm = async (req, res) => {
       inventoryItem: inventoryItem,
       books: books,
       isAuthenticated: req.isAuthenticated(),
-      username: req.user.UserName// Assuming you have a user object with username
+      username: req.user.UserName,// Assuming you have a user object with username
+      isAdmin: true
     });
   } catch (error) {
     console.error(error);
