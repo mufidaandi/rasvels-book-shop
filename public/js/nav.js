@@ -69,7 +69,7 @@ function unhideBackground() {
 
     $(".search-bar").submit(function( event ) {
       const keyword = $("#search-input").first().val();
-      window.location.href = "books-list.html?search=" + keyword;
+      window.location.href = "book-list?search=" + keyword;
       event.preventDefault();
     });
   });
