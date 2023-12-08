@@ -9,14 +9,16 @@ userController.dashboard = (req, res) => {
       title: 'Home',
       welcome: 'welcome',
       content: 'home',
-      username: req.user.UserName
+      username: req.user.UserName,
+      isAdmin: false
     });
   } else {
     res.render('main-layout', {
       title: 'Home',
       welcome: 'welcome',
       content: 'home',
-      username: null
+      username: null,
+      isAdmin: false
     });
   }
 };
@@ -27,14 +29,16 @@ userController.bookList = (req, res) => {
       title: 'Home',
       welcome: 'welcome',
       content: 'book-list',
-      username: req.user.UserName
+      username: req.user.UserName,
+      isAdmin: false
     });
   } else {
     res.render('main-layout', {
       title: 'Home',
-      welcome: 'welcome',
+      welcome: 'sign-in',
       content: 'book-list',
-      username: null
+      username: null,
+      isAdmin: false
     });
   }
 };
