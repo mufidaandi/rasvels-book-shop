@@ -52,7 +52,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:9000/getBookById/12",
+							"raw": "http://127.0.0.1:9000/getBookById/65714ff6ff242638e0294f5c",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -63,7 +63,7 @@
 							"port": "9000",
 							"path": [
 								"getBookById",
-								"12"
+								"65714ff6ff242638e0294f5c"
 							]
 						}
 					},
@@ -98,17 +98,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:9000/getBooks",
+							"raw": "http://localhost:9000/admin/inventory",
 							"protocol": "http",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"localhost"
 							],
 							"port": "9000",
 							"path": [
-								"getBooks"
+								"admin",
+								"inventory"
 							]
 						}
 					},
@@ -224,7 +222,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"UserID\": 1,\r\n    \"UserName\": \"sespina\",\r\n    \"FirstName\": \"Sylvia\",\r\n    \"LastName\": \"Espina\",\r\n    \"Email\": \"espinasylvia16@gmail.com\",\r\n    \"Password\": \"passsword\",\r\n    \"Address\": \"N/A\",\r\n    \"Role\": \"customer\"\r\n}",
+							"raw": "{\r\n    \"UserID\": 2,\r\n    \"UserName\": \"sespina\",\r\n    \"FirstName\": \"Sylvia\",\r\n    \"LastName\": \"Espina\",\r\n    \"Email\": \"espinasylvia16@gmail.com\",\r\n    \"Password\": \"$2b$10$PjJFhFfRi8QePRR1Okj0MeD6/ZqJq.jKUfQcaJKjWbCfmpq1PxHh6\",\r\n    \"Address\": \"N/A\",\r\n    \"Role\": \"user\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -487,6 +485,36 @@
 							"port": "9000",
 							"path": [
 								"getInventory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Inventory by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "user-type",
+								"value": "admin",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:9000/getInventoryById/65715088ff242638e0294f83",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9000",
+							"path": [
+								"getInventoryById",
+								"65715088ff242638e0294f83"
 							]
 						}
 					},

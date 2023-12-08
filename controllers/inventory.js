@@ -34,7 +34,7 @@ const getInventory = async (req, res) => {
 //Getting invetory by ID
 const getInventoryById = async (req, res) => {
   try {
-      const InventoryID = req.params.InventoryID;
+      const InventoryID = req.params._id;
       const inventory = await InventoryData.findOne({ InventoryID });
       if (inventory) {
           res.status(200).json(inventory);

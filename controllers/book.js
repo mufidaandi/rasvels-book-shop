@@ -17,7 +17,7 @@ const getBooks = async (req, res) => {
 //Getting book by ID
 const getBookById = async (req, res) => {
     try {
-        const BookID = req.params.BookID;
+        const BookID = req.params._id;
         const bookData = await BookData.findOne({ BookID });
         if (bookData) {
             res.status(200).json(bookData);
@@ -97,7 +97,7 @@ const addBook = async (req, res) => {
 
 //Updating book
 const updateBook = async (req, res) => {
-    const BookID = req.params.BookID;
+    const BookID = req.params._id;
     const { Title, Description, ReleaseDate, Author, Genre, Image, Price, Rating} = req.body;
 
     try {
@@ -119,7 +119,7 @@ const updateBook = async (req, res) => {
 
 //Deleting book
 const deleteBook = async (req, res) => {
-    const BookID = req.params.BookID;
+    const BookID = req.params._id;
 
     try {
         const deletedBook = await BookData.findOneAndDelete({ BookID });
