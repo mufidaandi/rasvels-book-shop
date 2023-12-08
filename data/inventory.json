@@ -1,42 +1,52 @@
 [
   {
-    "Book": "65714ff6ff242638e0294f5c",
-    "QuantityInStock": 50
+    "Book": { "$oid": "65714ff6ff242638e0294f5c" },
+    "QuantityInStock": 50,
+    "__v": 0
   },
   {
-    "Book": "65714ff6ff242638e0294f5d",
-    "QuantityInStock": 30
+    "Book": { "$oid": "65714ff6ff242638e0294f5d" },
+    "QuantityInStock": 30,
+    "__v": 0
   },
   {
-    "Book": "65714ff6ff242638e0294f5e",
-    "QuantityInStock": 20
+    "Book": { "$oid": "65714ff6ff242638e0294f5e" },
+    "QuantityInStock": 20,
+    "__v": 0
   },
   {
-    "Book": "65714ff6ff242638e0294f5f",
-    "QuantityInStock": 40
+    "Book": { "$oid": "65714ff6ff242638e0294f5f" },
+    "QuantityInStock": 40,
+    "__v": 0
   },
   {
-    "Book": "65714ff6ff242638e0294f60",
-    "QuantityInStock": 60
+    "Book": { "$oid": "65714ff6ff242638e0294f60" },
+    "QuantityInStock": 60,
+    "__v": 0
   },
   {
-    "Book": "65714ff6ff242638e0294f61",
-    "QuantityInStock": 25
+    "Book": { "$oid": "65714ff6ff242638e0294f61" },
+    "QuantityInStock": 25,
+    "__v": 0
   },
   {
-    "Book": "65714ff6ff242638e0294f62",
-    "QuantityInStock": 35
+    "Book": { "$oid": "65714ff6ff242638e0294f62" },
+    "QuantityInStock": 35,
+    "__v": 0
   },
   {
-    "Book": "65714ff6ff242638e0294f63",
-    "QuantityInStock": 15
+    "Book": { "$oid": "65714ff6ff242638e0294f63" },
+    "QuantityInStock": 15,
+    "__v": 0
   },
   {
-    "Book": "65714ff6ff242638e0294f64",
-    "QuantityInStock": 10
+    "Book": { "$oid": "65714ff6ff242638e0294f64" },
+    "QuantityInStock": 10,
+    "__v": 0
   },
   {
-    "Book": "65714ff6ff242638e0294f65",
-    "QuantityInStock": 55
+    "Book": { "$oid": "65714ff6ff242638e0294f65" },
+    "QuantityInStock": 55,
+    "__v": 0
   }
 ]
