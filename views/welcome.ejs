@@ -1,14 +1,23 @@
-<div class="account-profile">
-    <h5>Welcome, <%= username %>!</h5>
-    <div class="form-container">
-      <a href="./user-profile.html">
-        <label for="profile" class="profile">
-          User Profile
-        </label>
-      </a>
-      <div class="btn-container">
-        <button id="logout-btn" type="submit" onclick="logout()">Log out</button>
-      </div>
-      
-    </div>
+<div id="account-profile" class="account-profile">
+  <h5>Welcome, <%= username %>!</h5>
+  <div class="form-container">
+    <a href="/user-profile.html">
+      <label for="profile" class="profile"> User Profile </label>
+    </a>
+
+    <% if (isAdmin) { %>
+      <form action="/auth/logout" method="get">
+        <div class="btn-container">
+          <button id="logout-btn" type="submit">Log out</button>
+        </div>
+      </form>
+      <% } else { %>
+        <form action="/auth/userLogout" method="get">
+          <div class="btn-container">
+            <button id="logout-btn" type="submit">Log out</button>
+          </div>
+        </form>
+    <% } %>
+    
   </div>
+</div>

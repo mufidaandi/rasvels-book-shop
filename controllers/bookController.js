@@ -13,7 +13,8 @@ bookController.getAllBooks = async (req, res) => {
         content: 'admin-book-management',
         books: books,
         isAuthenticated: req.isAuthenticated(),
-        username: req.user.UserName// Assuming you have a user object with username
+        username: req.user.UserName,
+        isAdmin: true
     });
   } catch (error) {
     console.error(error);
@@ -28,7 +29,8 @@ bookController.getAddBookForm = (req, res) => {
         account: 'welcome',
         content: 'admin-book-add',
         isAuthenticated: req.isAuthenticated(),
-        username: req.user.UserName// Assuming you have a user object with username
+        username: req.user.UserName,
+        isAdmin: true
     });
 };
 
@@ -71,7 +73,8 @@ bookController.getEditBookForm = async (req, res) => {
         content: 'admin-book-edit',
         book: book,
         isAuthenticated: req.isAuthenticated(),
-        username: req.user.UserName// Assuming you have a user object with username
+        username: req.user.UserName,
+        isAdmin: true
     });
   } catch (error) {
     console.error(error);

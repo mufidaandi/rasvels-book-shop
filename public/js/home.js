@@ -50,7 +50,7 @@ function topSellers(){
       topBooks.forEach(book => {
           const bookDiv = document.createElement('div');
           bookDiv.innerHTML = `
-              <a href="product-detail.html?bookId=${book.BookID}"><img src="/${book.Image}" alt="Book Cover">
+              <a href="/product-detail.html?bookId=${book.BookID}"><img src="/${book.Image}" alt="Book Cover">
               <p class="book-title">${book.Title}</p></a>
               <p>by ${book.Author}</p>
               <button class="button addToCart">ADD TO CART</button>

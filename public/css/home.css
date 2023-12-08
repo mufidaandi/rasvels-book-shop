@@ -1,6 +1,6 @@
 .botd-container, .top-sellers-container {
   width: 80%;
-  height: 100vh;
+  height: 100%;
   margin: auto;  
   font-size: x-large;
   display: flex;

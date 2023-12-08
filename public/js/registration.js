@@ -124,28 +124,4 @@ function submitForm() {
     });
 }
 
-function showLogin() {
-  console.log("storedUser " + storedUser);
-  if (!storedUser) {
-    $("#login").css("display", "flex");
-  } else {
-    var $loggedIn = $("<h1>You are already logged in.</h1>");
-    var $goToProducts = $(
-      "<a href='index.html'><h3><u>Go to Home</u></h3></a>"
-    );
-    $(".register-form-container").append($loggedIn);
-    $(".register-form-container").append($goToProducts);
-  }
-  $("#register").css("display", "none");
-}
 
-function hideLogin() {
-  $("#login").css("display", "none");
-  $("#register").css("display", "block");
-}
-
-$(document).ready(function () {
-  hideLogin();
-  $("#showLogin").click(showLogin);
-  checkLogin();
-});

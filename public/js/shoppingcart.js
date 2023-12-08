@@ -13,7 +13,7 @@ $(document).ready(function() {
     // clear all items in the cart
     var userCart = getAllCartItems();
     if (userCart === null || userCart.length == 0){
-      alert("Your cart is lonely! Give it some company by adding your favorite pet items from our collection.");
+      alert("Your cart is lonely! Give it some company by adding your favorite books from our collection.");
     } else{
       myform.submit();
     }

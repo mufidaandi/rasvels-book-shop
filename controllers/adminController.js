@@ -8,7 +8,8 @@ adminController.dashboard = (req, res) => {
     account: 'welcome',
     content: 'admin-dashboard',
     isAuthenticated: req.isAuthenticated(),
-    username: req.user.UserName// Assuming you have a user object with username
+    username: req.user.UserName,
+    isAdmin: true
   });
 };
 
