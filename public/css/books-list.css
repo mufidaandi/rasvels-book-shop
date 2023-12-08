@@ -1,5 +1,5 @@
 /* Product list container */
-#product-list {
+#book-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, calc(33.33% - 1rem)));
   padding: 1% 1%;
@@ -93,8 +93,8 @@
   margin-top: 10px;
 }
 
-#product-list a:visited,
-#product-list a:link {
+#book-list a:visited,
+#book-list a:link {
   color: black;
 }
 

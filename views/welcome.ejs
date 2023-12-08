@@ -8,9 +8,19 @@
           User Profile
         </label>
       </a>
-      <div class="btn-container">
-        <button id="logout-btn" type="submit" onclick="logout()">Log out</button>
-      </div>
+      <% if (isAdmin) { %>
+        <form action="/auth/logout" method="get">
+          <div class="btn-container">
+            <button id="logout-btn" type="submit">Log out</button>
+          </div>
+        </form>
+        <% } else { %>
+          <form action="/auth/userLogout" method="get">
+            <div class="btn-container">
+              <button id="logout-btn" type="submit">Log out</button>
+            </div>
+          </form>
+      <% } %>
     </div>
   </div>
 <% } else { %>

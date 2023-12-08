@@ -12,7 +12,8 @@ authController.showLogin = (req, res) => {
     account: 'admin-login',
     dashboard: 'admin-dashboard',
     isAuthenticated: req.isAuthenticated(),
-    errorMessage: null
+    errorMessage: null,
+    isAdmin: true
   });
 };
 
@@ -20,9 +21,11 @@ authController.showLogin = (req, res) => {
 authController.showUserLogin = (req, res) => {
   res.render('main-layout', {
     title: 'Home',
+    welcome: 'welcome',
     content: 'sign-in',
     isAuthenticated: req.isAuthenticated(),
-    errorMessage: null
+    errorMessage: null,
+    isAdmin: false
   });
 };
 
@@ -63,8 +66,10 @@ authController.checkUserLogin = (req, res, next) => {
 
       return res.render('main-layout', {
         title: 'User Login',
+        welcome: 'welcome',
         content: 'sign-in',
         isAuthenticated: req.isAuthenticated(),
+        isAdmin: false
       });
     }
 
@@ -76,7 +81,7 @@ authController.checkUserLogin = (req, res, next) => {
 
       console.log('User successfully logged in:', user);
       // Redirect to the user dashboard upon successful login
-      return res.redirect('/user/home');
+      return res.redirect('/home');
     });
   })(req, res, next);
 };
@@ -123,7 +128,7 @@ authController.showRegistrationForm = (req, res) => {
 authController.registerUser = async (req, res) => {
   try {
     if (req.isAuthenticated()) {
-      return res.redirect('/user/home');
+      return res.redirect('/home');
     }
     const { UserName, FirstName, LastName, Email, Password, confirmPassword, Address } = req.body;
     const role = 'user';
@@ -190,7 +195,8 @@ authController.userLogout = (req, res) => {
       console.error(err);
       return res.status(500).send('Internal Server Error');
     }
-    res.redirect('/auth/user'); // Redirect to the home page or any other desired page
+    console.log('logout');
+    res.redirect('/home'); // Redirect to the home page or any other desired page
   });
 };
 

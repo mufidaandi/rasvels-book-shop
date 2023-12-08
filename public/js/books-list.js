@@ -62,7 +62,7 @@ function setCategories() {
 }
 
 function displayBooks(endpoint) {  
-  const productList = $("#product-list");
+  const productList = $("#book-list");
   // Fetch books from the server
   fetch(endpoint)
     .then((response) => response.json())
