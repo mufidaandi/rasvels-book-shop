@@ -1,9 +1,12 @@
 {
-  "name": "termproject",
+  "homepage": "https://mufidaandi.github.io/rasvels-book-shop",
+  "name": "rasvels-book-shop",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "mocha --timeout 10000 tests/adminRoutes.test.js tests/authRoutes.test.js tests/userRoutes.test.js"
   },
   "author": "",
@@ -20,6 +23,7 @@
   "devDependencies": {
     "chai": "^4.3.10",
     "chai-http": "^4.4.0",
+    "gh-pages": "^6.1.1",
     "mocha": "^10.2.0",
     "nodemon": "^3.0.2",
     "supertest": "^6.3.3"
